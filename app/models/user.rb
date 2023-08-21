@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :check_ins
-  has_many :reviews, through: :check_ins
-  has_many :snow_reports, through: :check_ins
+  has_many :check_ins, dependent: :destroy_all
+  has_many :reviews, through: :check_ins, dependent: :destroy_all
+  has_many :snow_reports, through: :check_ins, dependent: :destroy_all
   has_many :ski_reports, through: :check_ins
 
   validates :username, :first_name, :last_name, presence: true

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_082034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "ski_resorts_id"
+    t.index ["ski_resorts_id"], name: "index_check_ins_on_ski_resorts_id"
+    t.index ["users_id"], name: "index_check_ins_on_users_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -26,12 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
     t.integer "waiting_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "snow_reports", force: :cascade do |t|
-    t.datetime "checked_out_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "check_ins_id"
+    t.index ["check_ins_id"], name: "index_reviews_on_check_ins_id"
   end
 
   create_table "ski_resorts", force: :cascade do |t|
@@ -45,6 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "snow_reports", force: :cascade do |t|
+    t.datetime "checked_out_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "check_ins_id"
+    t.index ["check_ins_id"], name: "index_snow_reports_on_check_ins_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -62,4 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "check_ins", "ski_resorts", column: "ski_resorts_id"
+  add_foreign_key "check_ins", "users", column: "users_id"
+  add_foreign_key "reviews", "check_ins", column: "check_ins_id"
+  add_foreign_key "snow_reports", "check_ins", column: "check_ins_id"
 end

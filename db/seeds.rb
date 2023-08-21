@@ -19,6 +19,27 @@ Ski_resort.destroy_all
 
 puts 'Creating now a new db!'
 
+User.create!(
+ {
+  email:
+  username:
+  first_name:
+  last_name:
+  gender:
+  age:
+ }
+)
+Check_in.create!(
 
+)
+Review.create!(
+
+)
+Snow_report.create!(
+
+)
+Ski_resort.create!(
+
+)
 
 puts 'Done! :)'

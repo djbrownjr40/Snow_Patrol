@@ -1,0 +1,2 @@
+class SkiResort < ApplicationRecord
+end

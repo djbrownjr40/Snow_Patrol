@@ -19,6 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072024) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "waiting_rating"
+  end
 
   create_table "snow_reports", force: :cascade do |t|
     t.datetime "checked_out_at"

@@ -4,5 +4,4 @@ class CheckIn < ApplicationRecord
   has_many :reviews, dependent: :destroy_all
   has_many :snow_reports, dependent: :destroy_all
 
-  validates :checked_out_at, presence: true
 end

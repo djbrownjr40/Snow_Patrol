@@ -14,6 +14,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "check_ins", force: :cascade do |t|
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "waiting_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "snow_reports", force: :cascade do |t|
+    t.datetime "checked_out_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ski_resorts", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -25,7 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_072626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

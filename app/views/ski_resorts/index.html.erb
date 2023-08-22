@@ -1,4 +1,6 @@
 <%= render "ski_resorts/search_bar" %>
-<% @ski_resorts do |ski_resort|%>
-  <%= render "ski_resorts/resort_card" %>
-<% end %>
+<div>
+  <% @ski_resorts.each do |ski_resort|%>
+    <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
+  <% end %>
+</div>

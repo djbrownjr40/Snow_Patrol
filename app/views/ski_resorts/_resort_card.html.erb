@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="resort-info">
+    <h3> <%= ski_resort.name %> </h3>
+    <p> <%= ski_resort.description %></p>
+  </div>
+  <div class="average_rating">
+    <% if ski_resort.average_rating == 0 %>
+      <i class="fa-regular fa-face-smile" style="color: #000000;"></i>
+    <% elsif ski_resort.average_rating == 1%>
+      <i class="fa-regular fa-face-smile" style="color: #d71414;"></i>
+    <% elsif ski_resort.average_rating == 2%>
+      <i class="fa-regular fa-face-smile" style="color: #d77c14;"></i>
+    <% elsif ski_resort.average_rating == 3 %>
+      <i class="fa-regular fa-face-smile" style="color: #c2b30f;"></i>
+    <% elsif ski_resort.average_rating == 4 %>
+      <i class="fa-regular fa-face-smile" style="color: #1bc20f;"></i>
+    <% else %>
+      <i class="fa-regular fa-face-smile" style="color: #143bd7;"></i>
+    <% end %>
+  </div>
+</div>

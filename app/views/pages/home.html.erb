@@ -1,4 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="btn btn-naoki"></div>
-<p class="naoki">different font</p>
+<%# if user exists redirect to a page statement here (else use code below) %>
+<div class="container">
+  <div class="mt-5 mb-2">
+    <h1>Welcome to Snow Patrol!</h1>
+  </div>
+  <div>
+    <%# render search bar %>
+  </div>
+  <div style="display: inline-block; background-color: green; width: 100%; height: 400px;">
+    <%# render map %>
+  </div>
+  <div class="d-grid gap-2">
+    <%= link_to 'Search', "#", class: 'btn btn-primary'%>
+  </div>
+</div>

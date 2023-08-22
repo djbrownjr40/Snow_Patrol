@@ -4,7 +4,17 @@ class SkiResortsController < ApplicationController
       @ski_resorts = SkiResort.where(location: params[:location], name: params[:name], average_rating: params[:average_rating])
     else
       @ski_resorts = SkiResort.all
+      # add additional index features in the future
+    end
+    @markers = @resorts.geocoded.map do |resort|
+      {
+        lat: resort.latitude,
+        lng: resort.longitude
+      }
     end
   end
-  # add additional index features in the future
+
+  def show
+
+  end
 end

@@ -46,7 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_042506) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "checked_out_at"
-
     t.bigint "user_id"
     t.bigint "ski_resort_id"
     t.index ["ski_resort_id"], name: "index_check_ins_on_ski_resort_id"

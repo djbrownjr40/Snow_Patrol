@@ -6,10 +6,10 @@ class SkiResortsController < ApplicationController
       @ski_resorts = SkiResort.all
       # add additional index features in the future
     end
-    @markers = @resorts.geocoded.map do |resort|
+    @markers = @ski_resorts.geocoded.map do |ski_resort|
       {
-        lat: resort.latitude,
-        lng: resort.longitude
+        lat: ski_resort.latitude,
+        lng: ski_resort.longitude
       }
     end
   end

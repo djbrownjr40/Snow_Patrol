@@ -21,7 +21,7 @@ puts 'Creating now a new db!'
     {
       name: Faker::Restaurant.name,
       location: Faker::Address.full_address,
-      description: Faker::Restaurant.description,
+      description: Faker::Lorem.word,
       average_rating: rand(0..5),
       url: Faker::Internet.url,
       latitude: Faker::Address.latitude,

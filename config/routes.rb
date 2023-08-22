@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "pages#home"
 
-  resources :resorts, only: [:index, :show] do
+  resources :ski_resorts, only: [:index, :show] do
     resources :check_ins, only: [:create]
   end
 
@@ -14,5 +14,4 @@ Rails.application.routes.draw do
     resources :snow_reports, only: [:create]
     resources :reviews, only: [:create]
   end
-
 end

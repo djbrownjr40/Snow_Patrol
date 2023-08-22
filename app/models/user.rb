@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :snow_reports, through: :check_ins
   has_many :ski_resorts, through: :check_ins
 
-  validates :username, :first_name, :last_name, presence: true
+  # validates :username, :first_name, :last_name, presence: true
 end

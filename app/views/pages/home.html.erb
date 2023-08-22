@@ -2,6 +2,7 @@
 <div class="container">
   <div class="mt-5 mb-2 text-center">
     <h1>Welcome to Snow Patrol!</h1>
+    <p>Search for slopes with perfect snow.</p>
   </div>
   <div action-controller="map search">
     <div action-target="search-bar">
@@ -9,8 +10,7 @@
     <div action-target="display" style="display: inline-block; background-color: green; width: 100%; height: 400px;">
       <%# render map %>
     </div>
-    <div action-target="submit" class="d-grid gap-2">
-      <%= link_to 'Search', "#", class: 'btn btn-primary'%>
+    <div action-target="submit" class="d-grid gap-2 col-8 mx-auto">
+      <%= link_to 'Find Ski Resorts', "#", class: 'btn btn-primary', type: 'button', id: 'search'%>
     </div>
   </div>
-</div>

@@ -1,4 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="btn btn-naoki"></div>
-<p class="naoki">different font</p>
+<%# if user exists redirect to a page statement here (else use code below) %>
+<div class="container">
+  <div class="mt-5 mb-2 text-center">
+    <h1>Welcome to Snow Patrol!</h1>
+    <p>Search for slopes with perfect snow.</p>
+  </div>
+  <div action-controller="map search">
+    <div action-target="search-bar">
+    </div>
+    <div action-target="display" style="display: inline-block; background-color: green; width: 100%; height: 400px;">
+      <%# render map %>
+    </div>
+    <div action-target="submit" class="d-grid gap-2 col-8 mx-auto">
+      <%= link_to 'Find Ski Resorts', "#", class: 'btn btn-primary', type: 'button', id: 'search'%>
+    </div>
+  </div>

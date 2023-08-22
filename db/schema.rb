@@ -10,19 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_082119) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_22_024029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "check_ins", force: :cascade do |t|
-    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "checked_out_at"
     t.bigint "users_id"
     t.bigint "ski_resorts_id"
     t.index ["ski_resorts_id"], name: "index_check_ins_on_ski_resorts_id"
     t.index ["users_id"], name: "index_check_ins_on_users_id"
-    t.datetime "checked_out_at"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -47,7 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_082119) do
   end
 
   create_table "snow_reports", force: :cascade do |t|
-    t.datetime "checked_out_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "check_ins_id"

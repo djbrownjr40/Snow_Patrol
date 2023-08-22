@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = { apiKey: String }
   connect() {
-    mapboxgl.accessToken = this.apiKey.value;
+    mapboxgl.accessToken = this.apiKeyValue;
     const map = new mapboxgl.Map({
       container: this.element, // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL

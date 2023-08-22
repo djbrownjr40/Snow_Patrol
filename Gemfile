@@ -82,3 +82,4 @@ group :test do
 end
 
 gem 'faker'
+gem 'pg_search'

@@ -5,19 +5,19 @@ require 'faker'
 puts 'Detroying all previous users...'
 User.destroy_all
 puts 'Detroying all previous check_ins...'
-Check_in.destroy_all
+CheckIn.destroy_all
 puts 'Detroying all previous reviews...'
 Review.destroy_all
 puts 'Detroying all previous snow reports...'
-Snow_report.destroy_all
+SnowReport.destroy_all
 puts 'Detroying all previous ski reports...'
-Ski_resort.destroy_all
+SkiResort.destroy_all
 
 puts 'Creating now a new db!'
 
 # creating skii resorts
 50.times do
-  Ski_resort.create!(
+  SkiResort.create!(
     {
       name: Faker::Restaurant.name,
       location: Faker::Address.full_address,
@@ -25,7 +25,7 @@ puts 'Creating now a new db!'
       average_rating: rand(0..5),
       url: Faker::Internet.url,
       latitude: Faker::Address.latitude,
-      longitud: Faker::Address.longitude,
+      longitude: Faker::Address.longitude,
     }
   )
 end
@@ -46,9 +46,9 @@ end
     }
   )
   5.times do
-    check_in = Check_in.new({ checked_out_at: Faker::Date.between(from: 1095.days.ago, to: Date.today) })
+    check_in = CheckIn.new({ checked_out_at: Faker::Date.between(from: 1095.days.ago, to: Date.today) })
     check_in.user = user
-    check_in.ski_resort = Ski_resort.all.sample
+    check_in.ski_resort = SkiResort.all.sample
     check_in.save!
 
     review = Review.new(
@@ -60,7 +60,7 @@ end
     review.check_in = check_in
     review.save!
 
-    snow_report = Snow_report.new({ rating: rand(0..5) })
+    snow_report = SnowReport.new({ rating: rand(0..5) })
     snow_report.check_in = check_in
     snow_report.save!
   end
@@ -68,9 +68,9 @@ end
 
 
 # assigning a resort as default to the first user, no review or snow report for this default resort yet
-check_in_default = Check_in.create!({ checked_out_at: nil })
+check_in_default = CheckIn.create!({ checked_out_at: nil })
 check_in_default.user = User.first
-check_in_default.ski_resort = Ski_resort.all.sample
+check_in_default.ski_resort = SkiResort.all.sample
 check_in_default.save!
 
 

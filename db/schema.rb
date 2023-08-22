@@ -17,9 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_024029) do
   create_table "check_ins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "checked_out_at"
     t.bigint "users_id"
     t.bigint "ski_resorts_id"
+    t.datetime "checked_out_at"
     t.index ["ski_resorts_id"], name: "index_check_ins_on_ski_resorts_id"
     t.index ["users_id"], name: "index_check_ins_on_users_id"
   end

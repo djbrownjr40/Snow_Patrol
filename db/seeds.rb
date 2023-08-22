@@ -53,7 +53,7 @@ end
 
     review = Review.new(
       {
-        comment: Faker::Restaurant.review,
+        comment: Faker::Lorem.sentences(number: 1),
         waiting_rating: rand(0..5)
       }
     )
@@ -68,7 +68,7 @@ end
 
 
 # assigning a resort as default to the first user, no review or snow report for this default resort yet
-check_in_default = CheckIn.create!({ checked_out_at: nil })
+check_in_default = CheckIn.new({ checked_out_at: nil })
 check_in_default.user = User.first
 check_in_default.ski_resort = SkiResort.all.sample
 check_in_default.save!

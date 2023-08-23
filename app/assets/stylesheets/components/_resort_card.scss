@@ -1,0 +1,18 @@
+// style the whole ul to make it able to scroll horizontally
+.cards {
+  display: flex;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+
+  // style each li
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    background: var(--white);
+    border-radius: 12px;
+    scroll-snap-align: start;
+    transition: all 0.2s;
+  }
+}

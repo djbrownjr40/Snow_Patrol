@@ -1,6 +1,6 @@
 <%= render "ski_resorts/search_bar" %>
-<div>
+<ul class="cards">
   <% @ski_resorts.each do |ski_resort|%>
-    <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
+    <li class="card mx-2"><%= render "ski_resorts/resort_card", ski_resort: ski_resort %></li>
   <% end %>
-</div>
+</ul>

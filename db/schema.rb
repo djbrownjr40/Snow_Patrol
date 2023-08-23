@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_054159) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_061432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_054159) do
     t.float "height"
     t.float "length"
     t.float "temp"
+    t.text "features"
   end
 
   create_table "snow_reports", force: :cascade do |t|

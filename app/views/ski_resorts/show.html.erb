@@ -8,11 +8,11 @@
         <ul>
           <li>
             Length
-            36.5km
+            <%= @ski_resort.length%>km
           </li>
           <li>
             Height
-            203m
+            <%= @ski_resort.height%>m
           </li>
           <li>
             temp
@@ -28,10 +28,10 @@
         <p>Restaurant</p>
         <p>Restaurant</p>
         <p>Restaurant</p>
-        <p>Restaurant</p>
+        <p>Restaurant</p>-->
          <% @ski.resort.features.each do |feature| %>
           <%= feature.name %><i class="fa-solid fa-circle-check" style="color: #4dc567;"></i> <%= if feature.available %>
-        <% end %> -->
+        <% end %>
       </div>
   </div>
 </div>

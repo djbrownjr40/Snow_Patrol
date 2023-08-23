@@ -19,6 +19,7 @@ $success:    $green;
 $info:       $pink;
 $danger:     $red;
 $warning:    $light-orange;
+$light:      $white-blue;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -47,7 +48,7 @@ $theme-colors: (
   "info":       $info,
   "warning":    $warning,
   "danger":     $danger,
-  // "light":      $light,
+  "light":      $light,
   "dark":    $blue-grey
 
 );

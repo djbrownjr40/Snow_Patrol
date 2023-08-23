@@ -25,6 +25,9 @@ puts 'Creating now a new db!'
       url: Faker::Internet.url,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
+      height: rand(150.0..350.0),
+      lenght: rand(15.0..35.0),
+      temp: rand(-15.0..3.0)
     }
   )
 end

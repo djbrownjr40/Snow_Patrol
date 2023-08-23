@@ -7,5 +7,4 @@ class Review < ApplicationRecord
   validates :crowd_rating, presence: true, inclusion: { in: 0..5 }
   validates :food_rating, presence: true, inclusion: { in: 0..5 }
   validates :location_rating, presence: true, inclusion: { in: 0..5 }
-  validates :overall_rating, presence: true, inclusion: { in: 0..5 }
 end

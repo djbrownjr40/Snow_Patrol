@@ -1,16 +1,18 @@
 <%# if user exists redirect to a page statement here (else use code below) %>
-<div class="container">
-  <div class="m-3 text-center">
-    <h1>Welcome to Snow Patrol!</h1>
-    <p>Search for slopes with perfect snow.</p>
-    <div class="input-group">
-      <input type="text" class="form-control bg-white" placeholder="search by name, area, and more!">
+<div class="container" style="padding: 0;">
+  <div class="auroral-northern"></div>
+  <div class="auroral-stars"></div>
+  <div class="container">
+    <div style="height: 225px"></div>
+    <div class="m-3 text-center">
+      <h1>Welcome to Snow Patrol!</h1>
+      <p>Search for slopes with perfect snow.</p>
+      <div class="input-group">
+        <input type="text" class="form-control bg-white" placeholder="search by name, area, and more!">
+      </div>
     </div>
-  </div>
-  <div class="m-3 border border-5" style="height: 300px">
-    <%= render 'shared/map' %>
-  </div>
-  <div class="d-grid gap-2 col-8 mx-auto">
-    <%= link_to 'Find Ski Resorts', ski_resorts_path, class: 'btn btn-primary', type: 'button', id: 'search'%>
+    <div class="d-grid gap-2 col-8 mx-auto">
+      <%= link_to 'Find Ski Resorts', ski_resorts_path, class: 'btn btn-primary', type: 'button', id: 'search'%>
+    </div>
   </div>
 </div>

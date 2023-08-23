@@ -3,6 +3,7 @@
   display: flex;
   list-style: none;
   overflow-x: scroll;
+  overflow-y: auto;
   scroll-snap-type: x mandatory;
 
   // style each li
@@ -17,8 +18,6 @@
   }
 }
 
-
-/* In your app/assets/stylesheets/application.scss or a separate .scss file */
 body, html {
   height: 100%;
   margin: 0;
@@ -29,9 +28,9 @@ body, html {
   height: 100%;
 }
 
-.cards {
-  /* Set the height to leave space for the map at the bottom */
-  overflow-y: auto; /* Enable scrolling for the cards */
+.search-bar {
+  background-color: transparent;
+  padding: 10px;
 }
 
 .shared-map {
@@ -39,6 +38,6 @@ body, html {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Adjust the height of the map as needed */
-  z-index: 1; /* Make sure it's above other content */
+  height: 100%;
+  z-index: 1;
 }

@@ -1,9 +1,14 @@
-<%= render "ski_resorts/search_bar" %>
-<ul class="cards fixed-bottom">
-  <% @ski_resorts.each do |ski_resort|%>
-    <li class="card mx-2">
-      <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
-      <%#= render partial: "shared/map", locals: { markers: ski_resort.markers, mapbox_api_key: ENV['MAPBOX_API_KEY'] } %>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <%= render "ski_resorts/search_bar" %>
+  <ul class="cards fixed-bottom">
+    <% @ski_resorts.each do |ski_resort|%>
+      <li class="card mx-2">
+        <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
+      </li>
+    <% end %>
+  </ul>
+  <%# <div style='height: 844px;'>
+    <%= render "shared/map" %>
+</div>
+ %>
+</div>

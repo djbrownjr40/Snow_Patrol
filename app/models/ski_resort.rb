@@ -1,4 +1,6 @@
 class SkiResort < ApplicationRecord
+  serialize :features, Hash
+
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
@@ -21,4 +23,14 @@ class SkiResort < ApplicationRecord
   using: {
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
          }
+
+  def average_rating
+    return 0 if reviews.nil? || reviews.empty?
+
+    sum = 0
+    reviews.each do |review|
+      sum += review.rating
+    end
+    sum / reviews.length
+  end
 end

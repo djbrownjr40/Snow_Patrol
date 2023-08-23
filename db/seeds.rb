@@ -22,13 +22,25 @@ puts 'Creating now a new db!'
       name: Faker::Restaurant.name,
       location: Faker::Address.full_address,
       description: Faker::Lorem.word,
-      average_rating: rand(0..5),
       url: Faker::Internet.url,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
+      height: rand(150.0..350.0),
+      length: rand(15.0..35.0),
+      temp: rand(-15.0..3.0),
+      features: {
+        restaurant: [true, false].sample,
+        restroom: [true, false].sample,
+        looker_room: [true, false].sample,
+        rental_wear: [true, false].sample,
+        shower_room: [true, false].sample,
+        english_friendly: [true, false].sample,
+        kids_friendly:[true, false].sample
+      }
     }
   )
 end
+puts 'skii resorts made'
 
 
 # creating 10 users, each of them has been to 5 resorts, left 1 review and 1 snow report
@@ -45,6 +57,7 @@ end
       age: rand(18..100)
     }
   )
+
   5.times do
     check_in = CheckIn.new({ checked_out_at: Faker::Date.between(from: 1095.days.ago, to: Date.today) })
     check_in.user = user
@@ -54,16 +67,21 @@ end
     review = Review.new(
       {
         comment: Faker::Lorem.sentences(number: 1),
-        waiting_rating: rand(0..5)
+        lift_wait_rating: rand(0..5),
+        price_rating: rand(0..5),
+        crowd_rating: rand(0..5),
+        food_rating: rand(0..5),
+        location_rating: rand(0..5)
       }
-    )
-    review.check_in = check_in
-    review.save!
+      )
+      review.check_in = check_in
+      review.save!
 
-    snow_report = SnowReport.new({ rating: rand(0..5) })
-    snow_report.check_in = check_in
-    snow_report.save!
-  end
+      snow_report = SnowReport.new({ rating: rand(0..5) })
+      snow_report.check_in = check_in
+      snow_report.save!
+    end
+  puts 'user made'
 end
 
 
@@ -72,6 +90,7 @@ check_in_default = CheckIn.new({ checked_out_at: nil })
 check_in_default.user = User.first
 check_in_default.ski_resort = SkiResort.all.sample
 check_in_default.save!
+puts 'gave 1st user a default'
 
 
 puts 'Done! :)'

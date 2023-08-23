@@ -29,7 +29,12 @@ class SkiResort < ApplicationRecord
 
     sum = 0
     reviews.each do |review|
-      sum += review.rating
+      review_avg = (review.lift_wait_rating +
+                    review.price_rating +
+                    review.crowd_rating +
+                    review.food_rating +
+                    review.location_rating) / 5
+      sum += review_avg
     end
     sum / reviews.length
   end

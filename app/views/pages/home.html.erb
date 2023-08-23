@@ -7,10 +7,10 @@
   <div action-controller="map-search">
     <div action-target="search-bar">
     </div>
-    <div action-target="display" style="display: inline-block;">
+    <div action-target="display" class="m-3 mt-5 border border-5" style="height: 300px">
       <%= render 'shared/map' %>
     </div>
     <div action-target="submit" class="d-grid gap-2 col-8 mx-auto">
-      <%= link_to 'Find Ski Resorts', "#", class: 'btn btn-primary', type: 'button', id: 'search'%>
+      <%= link_to 'Find Ski Resorts', ski_resorts_path, class: 'btn btn-primary', type: 'button', id: 'search'%>
     </div>
   </div>

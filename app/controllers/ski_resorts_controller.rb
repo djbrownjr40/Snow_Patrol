@@ -1,4 +1,6 @@
 class SkiResortsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
     if params[:location].present? || params[:name].present? || params[:average_rating].present?
       @ski_resorts = SkiResort.where(location: params[:location], name: params[:name], average_rating: params[:average_rating])
@@ -15,6 +17,5 @@ class SkiResortsController < ApplicationController
   end
 
   def show
-
   end
 end

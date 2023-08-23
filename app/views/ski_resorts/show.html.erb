@@ -8,24 +8,25 @@
         <div class="d-flex justify-content-around">
           <div class="d-flex flex-column">
             <p>Length</p>
-            <p><%= @ski_resort.length.round(2)%>km</p>
+            <p><strong><%= @ski_resort.length.round(2)%>km</strong></p>
           </div>
           <div class="d-flex flex-column">
             <p>Height</p>
-            <p><%= @ski_resort.height.round(2)%>m</p>
+            <p><strong><%= @ski_resort.height.round(2)%>m</strong></p>
           </div>
           <div class="d-flex flex-column">
-            <p>temp</p>
-            <p><%= @ski_resort.temp.round(1)%>º</p>
+            <p>Temp</p>
+            <p><strong><%= @ski_resort.temp.round(1)%>º</strong></p>
           </div>
         </div >
       </div>
       <div class="available-features">
         <ul class="list-unstyled">
-          <% @ski_resort.features.each_key do |feature, value| %>
+          <% @ski_resort.features.each_key do |feature, available| %>
             <li>
-              <%= feature %>
-              <% if value == true %>
+              <%= feature.to_s.capitalize.gsub("_", " ") %>
+              <p><%= available.to_s %></p>
+              <% if available.nil? %>
                 <i class="fa-solid fa-circle-check" style="color: #4dc567;"></i>
               <% end %>
             </li>

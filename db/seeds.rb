@@ -26,6 +26,15 @@ puts 'Creating now a new db!'
       url: Faker::Internet.url,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
+      features: {
+        restaurant: [true, false].sample,
+        restroom: [true, false].sample,
+        looker_room: [true, false].sample,
+        rental_wear: [true, false].sample,
+        shower_room: [true, false].sample,
+        english_friendly: [true, false].sample,
+        kids_friendly:[true, false].sample
+      }
     }
   )
 end

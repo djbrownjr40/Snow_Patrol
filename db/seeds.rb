@@ -22,7 +22,6 @@ puts 'Creating now a new db!'
       name: Faker::Restaurant.name,
       location: Faker::Address.full_address,
       description: Faker::Lorem.word,
-      average_rating: rand(0..5),
       url: Faker::Internet.url,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
@@ -60,8 +59,7 @@ puts 'skii resorts made'
         price_rating: rand(0..5),
         crowd_rating: rand(0..5),
         food_rating: rand(0..5),
-        location_rating: rand(0..5),
-        overall_rating: rand(0..5)
+        location_rating: rand(0..5)
       }
       )
       review.check_in = check_in

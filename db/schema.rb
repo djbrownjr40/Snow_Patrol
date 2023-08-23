@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_043828) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_050905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_043828) do
     t.integer "crowd_rating"
     t.integer "food_rating"
     t.integer "location_rating"
-    t.integer "overall_rating"
     t.index ["check_in_id"], name: "index_reviews_on_check_in_id"
   end
 

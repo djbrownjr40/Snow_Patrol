@@ -7,18 +7,18 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                $light-gray;
+$body-bg:                $white-blue;
 $font-size-base:         1rem;
 
 
 // Colors
 $body-color: $gray;
-$primary:    $pink;
-$secondary:  red;
+$primary:    $dark-blue;
+$secondary:  $baby-blue;
 $success:    $green;
-$info:       #FF8298;
+$info:       $pink;
 $danger:     $red;
-$warning:    #E8B6AD;
+$warning:    $light-orange;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -27,6 +27,7 @@ $border-radius-sm: 2px;
 
 // Override other variables below!
 // custom colors for snow-patrol
+$white-blue: #F4F9FE;
 $light-blue: #C4D2E7;
 $blue-grey: #778DB9;
 $dark-blue: #073763;

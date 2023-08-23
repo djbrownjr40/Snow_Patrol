@@ -1,1 +1,37 @@
-<h1>Hey</h1>
+<h1 class="text-center m-4 text-primary"><strong> <%= @ski_resort.name %></strong></h1>
+<div class="ski-resort-info bg-primary p-2">
+  <p class="p-1 bg-success text-center">The snow right now is...</p>
+  <!-- map -->
+    <button class="bg-secondary w-100 p-3"><%= link_to "Check in", ski_resort_check_ins_path(@ski_resort), class: "text-decoration-none text-center" %></button>
+  <div class="info">
+      <!--<div class="caracteristiques">
+        <ul>
+          <li>
+            Length
+            36.5km
+          </li>
+          <li>
+            Height
+            203m
+          </li>
+          <li>
+            temp
+            -3.2º
+          </li>
+        </ul>
+      </div>
+      <div class="available-features">
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+        <p>Restaurant</p>
+         <% @ski.resort.features.each do |feature| %>
+          <%= feature.name %><i class="fa-solid fa-circle-check" style="color: #4dc567;"></i> <%= if feature.available %>
+        <% end %> -->
+      </div>
+  </div>
+</div>

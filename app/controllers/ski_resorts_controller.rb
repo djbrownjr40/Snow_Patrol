@@ -1,4 +1,5 @@
 class SkiResortsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
     if params[:location].present? || params[:name].present? || params[:average_rating].present?
@@ -10,7 +11,9 @@ class SkiResortsController < ApplicationController
     @markers = @ski_resorts.geocoded.map do |ski_resort|
       {
         lat: ski_resort.latitude,
-        lng: ski_resort.longitude
+        lng: ski_resort.longitude,
+        title: ski_resort.name,
+        description: ski_resort.description
       }
     end
   end

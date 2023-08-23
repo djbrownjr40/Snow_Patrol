@@ -22,4 +22,19 @@ class SkiResort < ApplicationRecord
   using: {
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
          }
+
+  def average_rating
+    return 0 if reviews.nil? || reviews.empty?
+
+    sum = 0
+    reviews.each do |review|
+      review_avg = (review.lift_wait_rating +
+                    review.price_rating +
+                    review.crowd_rating +
+                    review.food_rating +
+                    review.location_rating) / 5
+      sum += review_avg
+    end
+    sum / reviews.length
+  end
 end

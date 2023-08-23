@@ -3,6 +3,7 @@
   display: flex;
   list-style: none;
   overflow-x: scroll;
+  overflow-y: auto;
   scroll-snap-type: x mandatory;
 
   // style each li
@@ -15,4 +16,23 @@
     scroll-snap-align: start;
     transition: all 0.2s;
   }
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.shared-map {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }

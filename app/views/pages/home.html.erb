@@ -5,14 +5,14 @@
   <div class="container">
     <div style="height: 225px"></div>
     <div class="m-3 text-center">
-      <h1>Welcome to Snow Patrol!</h1>
-      <p>Search for slopes with perfect snow.</p>
+      <h1 class="pink-text">Welcome to Snow Patrol!</h1>
+      <p class="white-text">Search for slopes with perfect snow.</p>
       <div class="input-group">
-        <input type="text" class="form-control bg-white" placeholder="search by name, area, and more!">
+        <%= render "ski_resorts/search_bar" %>
       </div>
     </div>
-    <div class="d-grid gap-2 col-8 mx-auto">
+    <%# <div class="d-grid gap-2 col-8 mx-auto">
       <%= link_to 'Find Ski Resorts', ski_resorts_path, class: 'btn btn-primary', type: 'button', id: 'search'%>
-    </div>
+    <%# </div> %>
   </div>
 </div>

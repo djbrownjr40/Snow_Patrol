@@ -17,7 +17,7 @@ CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |ro
       name: row[:resort_name],
       location: "#{row[:town]}, #{row[:prefecture]}",
       description: "#{row[:name_ja]}, #{row[:address_ja]}",
-      url: row[:url_path],
+      url: "https://www.snowjapan.com/japan-ski-resorts" + row[:url_path],
       latitude: row[:latitude],
       longitude: row[:longitude],
       height: rand(150.0..350.0),

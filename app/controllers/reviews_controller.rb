@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def index
     @reviews = @check_in.reviews
   end

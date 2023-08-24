@@ -7,6 +7,10 @@ class ReviewsController < ApplicationController
     @review = @check_in.reviews.find(params[:id])
   end
 
+  def create
+    raise
+  end
+
   private
 
   def set_check_in

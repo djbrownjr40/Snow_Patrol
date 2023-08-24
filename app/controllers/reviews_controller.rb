@@ -8,7 +8,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    raise
+    @check_in = CheckIn.find(params[:check_in_id])
+    @review = @check_in.reviews.build(reviews_params)
+
+    if @review.save
+      redirect_to check_in_path(@check_in), notice: 'Your report have submitted successfully. Thank you!'
+    else
+      render 'new'
+    end
   end
 
   private

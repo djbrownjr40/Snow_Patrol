@@ -1,33 +1,28 @@
-<%# <%= form_with(model: [@ski_resort, @review], url: check_in_reviews_path(@check_in)) do |form| %>
-  <%#= form.label :lift_wait_rating %>
-  <%#= form.label :price_rating %>
-  <%#= form.label :crowd_rating %>
-  <%#= form.label :food_rating %>
-  <%#= form.label :location_rating %>
-  <%#= form.submit 'Submit Your Report' %>
-  <%# end %>
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for [@ski_resort, @review] do |form| %>
-            <%= form.input :lift_wait_rating %>
-            <%= form.input :price_rating %>
-            <%= form.input :crowd_rating %>
-            <%= form.input :food_rating %>
-            <%= form.input :location_rating %>
-            <%= form.submit 'Submit Your Report' %>
-          <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Rate your review here!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-rate-body">
+        <%= simple_form_for [@ski_resort, @review] do |form| %>
+          <div class="rate" data-controller="rating">
+            <div class="emoji" data-rating-target="emoji">😑</div>
+            <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+          </div>
+          <%= form.input :price_rating %>
+          <%= form.input :crowd_rating %>
+          <%= form.input :food_rating %>
+          <%= form.input :location_rating %>
+          <%= form.submit 'Submit Your Review' %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
+</div>

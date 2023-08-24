@@ -6,36 +6,36 @@ require 'csv'
 # SEED ONCE WITH THE RESORTS UNCOMENTED AND THEN COMMENT THEM OUT
 # there's no point on destroying and recreating them cause they're going to stay the same
 
-# ski_resorts = 'db/ski_resorts.csv'
+ski_resorts = 'db/ski_resorts.csv'
 
-# puts 'Detroying all previous ski reports...'
-# SkiResort.destroy_all
+puts 'Detroying all previous ski reports...'
+SkiResort.destroy_all
 
-# CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |row|
-#   SkiResort.create!(
-#     {
-#       name: row[:resort_name],
-#       location: "#{row[:town]}, #{row[:prefecture]}",
-#       description: "#{row[:name_ja]}, #{row[:address_ja]}",
-#       url: row[:url_path],
-#       latitude: row[:latitude],
-#       longitude: row[:longitude],
-#       height: rand(150.0..350.0),
-#       length: rand(15.0..35.0),
-#       temp: rand(-15.0..3.0),
-#       features: {
-#         restaurant: [true, false].sample,
-#         restroom: [true, false].sample,
-#         looker_room: [true, false].sample,
-#         rental_wear: [true, false].sample,
-#         shower_room: [true, false].sample,
-#         english_friendly: [true, false].sample,
-#         kids_friendly:[true, false].sample
-#       }
-#     }
-#   )
-# end
-# puts 'skii resorts made'
+CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |row|
+  SkiResort.create!(
+    {
+      name: row[:resort_name],
+      location: "#{row[:town]}, #{row[:prefecture]}",
+      description: "#{row[:name_ja]}, #{row[:address_ja]}",
+      url: "https://www.snowjapan.com/japan-ski-resorts" + row[:url_path],
+      latitude: row[:latitude],
+      longitude: row[:longitude],
+      height: rand(150.0..350.0),
+      length: rand(15.0..35.0),
+      temp: rand(-15.0..3.0),
+      features: {
+        restaurant: [true, false].sample,
+        restroom: [true, false].sample,
+        looker_room: [true, false].sample,
+        rental_wear: [true, false].sample,
+        shower_room: [true, false].sample,
+        english_friendly: [true, false].sample,
+        kids_friendly:[true, false].sample
+      }
+    }
+  )
+end
+puts 'skii resorts made'
 
 puts 'Detroying all previous users...'
 User.destroy_all

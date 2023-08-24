@@ -2,7 +2,7 @@ class SkiResortsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    if params[:query] == ' '
+    if params[:query].nil? || params[:query].empty?
       @ski_resorts = SkiResort.all
     else
       @ski_resorts = SkiResort.search_by_name_and_location(params[:query])
@@ -22,5 +22,6 @@ class SkiResortsController < ApplicationController
     @ski_resort = SkiResort.find(params[:id])
     @check_in = CheckIn.new
     @review = Review.new
+    @snow_report = SnowReport.new
   end
 end

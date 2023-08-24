@@ -19,5 +19,6 @@ class SkiResortsController < ApplicationController
   end
 
   def show
+    @ski_resort = SkiResort.find(params[:id])
   end
 end

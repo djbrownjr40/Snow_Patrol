@@ -1,6 +1,41 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 require 'faker'
+require 'csv'
+
+# SEED ONCE WITH THE RESORTS UNCOMENTED AND THEN COMMENT THEM OUT
+# there's no point on destroying and recreating them cause they're going to stay the same
+
+# ski_resorts = 'db/ski_resorts.csv'
+
+# puts 'Detroying all previous ski reports...'
+# SkiResort.destroy_all
+
+# CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |row|
+#   SkiResort.create!(
+#     {
+#       name: row[:resort_name],
+#       location: "#{row[:town]}, #{row[:prefecture]}",
+#       description: "#{row[:name_ja]}, #{row[:address_ja]}",
+#       url: row[:url_path],
+#       latitude: row[:latitude],
+#       longitude: row[:longitude],
+#       height: rand(150.0..350.0),
+#       length: rand(15.0..35.0),
+#       temp: rand(-15.0..3.0),
+#       features: {
+#         restaurant: [true, false].sample,
+#         restroom: [true, false].sample,
+#         looker_room: [true, false].sample,
+#         rental_wear: [true, false].sample,
+#         shower_room: [true, false].sample,
+#         english_friendly: [true, false].sample,
+#         kids_friendly:[true, false].sample
+#       }
+#     }
+#   )
+# end
+# puts 'skii resorts made'
 
 puts 'Detroying all previous users...'
 User.destroy_all
@@ -10,38 +45,8 @@ puts 'Detroying all previous reviews...'
 Review.destroy_all
 puts 'Detroying all previous snow reports...'
 SnowReport.destroy_all
-puts 'Detroying all previous ski reports...'
-SkiResort.destroy_all
 
 puts 'Creating now a new db!'
-
-# creating skii resorts
-50.times do
-  SkiResort.create!(
-    {
-      name: Faker::Restaurant.name,
-      location: Faker::Address.full_address,
-      description: Faker::Lorem.word,
-      url: Faker::Internet.url,
-      latitude: Faker::Address.latitude,
-      longitude: Faker::Address.longitude,
-      height: rand(150.0..350.0),
-      length: rand(15.0..35.0),
-      temp: rand(-15.0..3.0),
-      features: {
-        restaurant: [true, false].sample,
-        restroom: [true, false].sample,
-        looker_room: [true, false].sample,
-        rental_wear: [true, false].sample,
-        shower_room: [true, false].sample,
-        english_friendly: [true, false].sample,
-        kids_friendly:[true, false].sample
-      }
-    }
-  )
-end
-puts 'skii resorts made'
-
 
 # creating 10 users, each of them has been to 5 resorts, left 1 review and 1 snow report
 # none of them have a default resort assigned

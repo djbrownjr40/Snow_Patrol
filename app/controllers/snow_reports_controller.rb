@@ -8,12 +8,19 @@ class SnowReportsController < ApplicationController
   end
 
   def create
-    raise
+    # snow_report = SnowReport.new(@snow_report)
+		# snow_report.save
   end
 
   private
 
   def set_check_in
     @check_in = CheckIn.find(params[:check_in_id])
+  end
+
+  private
+
+  def snow_report_params
+    params.require(:snow_report).permit(:rating)
   end
 end

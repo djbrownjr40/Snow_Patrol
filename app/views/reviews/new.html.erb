@@ -1,0 +1,8 @@
+<%= form_with(model: [@check_in, @reviews], url: check_in_reviews_path(@check_in)) do |form| %>
+  <%= form.label :lift_wait_rating %>
+  <%= form.label :price_rating %>
+  <%= form.label :crowd_rating %>
+  <%= form.label :food_rating %>
+  <%= form.label :location_rating %>
+  <%= form.submit 'Submit Your Report' %>
+<% end %>

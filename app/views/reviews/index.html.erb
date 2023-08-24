@@ -1,0 +1,10 @@
+<h1>Reviews for <%= @check_in.title %></h1>
+<% @reviews.each do |review| %>
+  <div class="review">
+    <p><%= @review.lift_wait_rating %></p>
+    <p><%= @review.price_rating%></p>
+    <p><%= @review.crowd_rating%></p>
+    <p><%= @review.food_rating%></p>
+    <p><%= @review.location_rating%></p>
+  </div>
+<% end %>

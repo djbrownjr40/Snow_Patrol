@@ -1,8 +1,10 @@
-<div class="card bg-white">
+<div class="card bg-white position-relative">
+  <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
   <div class="d-flex justify-content-between align-items-baseline mx-4 mt-3">
     <div class="resort-info">
       <h3 class="mb-1"> <%= ski_resort.name %> </h3>
       <p class="mt-1"> <%= ski_resort.description %></p>
+      <%= link_to "", ski_resort_path(ski_resort.id), class: 'btn' %>
     </div>
     <% if ski_resort.average_rating == 0 %>
       <i class="fa-regular fa-face-smile" style="color: #000000;"></i>

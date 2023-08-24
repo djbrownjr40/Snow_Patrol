@@ -22,11 +22,10 @@
       </div>
       <div class="available-features">
         <ul class="list-unstyled">
-          <% @ski_resort.features.each_key do |feature, available| %>
+          <% @ski_resort.features.each do |feature, available| %>
             <li>
               <%= feature.to_s.capitalize.gsub("_", " ") %>
-              <p><%= available.to_s %></p>
-              <% if available.nil? %>
+              <% if available %>
                 <i class="fa-solid fa-circle-check" style="color: #4dc567;"></i>
               <% end %>
             </li>

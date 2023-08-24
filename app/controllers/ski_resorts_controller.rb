@@ -21,5 +21,6 @@ class SkiResortsController < ApplicationController
   def show
     @ski_resort = SkiResort.find(params[:id])
     @check_in = CheckIn.new
+    @review = Review.new
   end
 end

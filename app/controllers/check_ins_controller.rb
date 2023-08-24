@@ -11,7 +11,6 @@ class CheckInsController < ApplicationController
   end
 
   def update
-
   end
 
 end

@@ -1,0 +1,6 @@
+<%= form_with(model: [@check_in, @snow_report], url: check_in_snow_reports_path(@check_in)) do |form| %>
+<%= form.label :rating %>
+
+<%= form.submit 'Submit Snow Report' %>
+<% end %>
+

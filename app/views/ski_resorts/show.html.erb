@@ -1,36 +1,36 @@
 <h1 class="text-center m-4 text-primary"><strong> <%= @ski_resort.name %></strong></h1>
-<div class="ski-resort-info bg-primary p-2">
+<div class="ski-resort-info bg-primary p-2 fixed-bottom">
   <p class="p-1 bg-success text-center">The snow right now is </p>
-  <!-- map -->
-    <button class="bg-secondary w-100 p-3"><%= link_to "Check in", ski_resort_check_ins_path(@ski_resort), class: "text-decoration-none text-center" %></button>
+  <div class="map m-3 border border-5" style="height: 285px">
+    <%= render "shared/map" %>
+  </div>
+  <button class="bg-secondary w-100 p-3"><%= link_to "Check in", ski_resort_check_ins_path(@ski_resort), class: "text-decoration-none text-center" %></button>
   <div class="info text-light">
-      <div class="caracteristiques">
-        <div class="d-flex justify-content-around">
-          <div class="d-flex flex-column">
-            <p>Length</p>
-            <p><strong><%= @ski_resort.length.round(2)%>km</strong></p>
-          </div>
-          <div class="d-flex flex-column">
-            <p>Height</p>
-            <p><strong><%= @ski_resort.height.round(2)%>m</strong></p>
-          </div>
-          <div class="d-flex flex-column">
-            <p>Temp</p>
-            <p><strong><%= @ski_resort.temp.round(1)%>º</strong></p>
-          </div>
-        </div >
+    <div class="caracteristiques d-flex justify-content-around">
+      <div class="d-flex flex-column">
+        <p class="mb-1 mt-2">Length</p>
+        <p><strong><%= @ski_resort.length.round(2)%>km</strong></p>
       </div>
-      <div class="available-features">
-        <ul class="list-unstyled">
-          <% @ski_resort.features.each do |feature, available| %>
-            <li>
-              <%= feature.to_s.capitalize.gsub("_", " ") %>
-              <% if available %>
-                <i class="fa-solid fa-circle-check" style="color: #4dc567;"></i>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+      <div class="d-flex flex-column">
+        <p class="mb-1 mt-2">Height</p>
+        <p><strong><%= @ski_resort.height.round(2)%>m</strong></p>
       </div>
+      <div class="d-flex flex-column">
+        <p class="mb-1 mt-2">Temp</p>
+        <p><strong><%= @ski_resort.temp.round(1)%>º</strong></p>
+      </div>
+    </div>
+    <div class="available-features">
+      <ul class="list-unstyled">
+        <% @ski_resort.features.each do |feature, available| %>
+          <li>
+            <%= feature.to_s.capitalize.gsub("_", " ") %>
+            <% if available %>
+              <i class="fa-solid fa-circle-check" style="color: #4dc567;"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

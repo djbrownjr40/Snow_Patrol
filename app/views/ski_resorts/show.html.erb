@@ -8,9 +8,12 @@
   <%# if i'm signed in and checked in in this particular resort:  %>
   <% if user_signed_in? && new_checkin.ski_resort == @ski_resort && new_checkin.checked_out_at == nil %>
     <%= link_to "Check out", check_in_path(new_checkin), data: {turbo_method: :patch}, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Launch static backdrop modal
-    </button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#snowBackdrop">
+    Snow Report
+  </button>
   <%# if i'm signed in but check in in another resort: %>
   <% elsif user_signed_in? && new_checkin.checked_out_at == nil %>
     <%= link_to "Check out from #{new_checkin.ski_resort.name}", ski_resort_path(new_checkin.ski_resort), class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
@@ -23,6 +26,7 @@
   <% else %>
     <%= link_to "Sign in", new_user_session_path, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
   <% end %>
+
   <div class="info text-light">
     <div class="caracteristiques d-flex justify-content-around">
       <div class="d-flex flex-column">
@@ -53,3 +57,4 @@
   </div>
 </div>
 <%= render 'review_modal' %>
+<%= render 'snow_report_modal' %>

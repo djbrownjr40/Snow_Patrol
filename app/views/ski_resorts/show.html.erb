@@ -6,11 +6,11 @@
   </div>
   <% if user_signed_in? %>
     <%= simple_form_for([@ski_resort, @check_in], remote: true) do |f|  %>
-      <%= f.submit 'Check in' %>
+      <%= f.submit 'Check in', class: "btn btn-secondary btn-block w-100 p-3" %>
     <% end %>
-
-    <button class="bg-secondary w-100 p-3"><%= link_to "Check in", ski_resort_check_ins_path(@ski_resort), class: "text-decoration-none text-center" %></button>
   <% end %>
+
+
   <div class="info text-light">
     <div class="caracteristiques d-flex justify-content-around">
       <div class="d-flex flex-column">

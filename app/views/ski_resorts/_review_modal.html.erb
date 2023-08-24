@@ -12,10 +12,22 @@
             <div class="emoji" data-rating-target="emoji">😑</div>
             <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
           </div>
-          <%= form.input :price_rating %>
-          <%= form.input :crowd_rating %>
-          <%= form.input :food_rating %>
-          <%= form.input :location_rating %>
+          <div class="rate" data-controller="rating">
+            <div class="emoji" data-rating-target="emoji">😑</div>
+            <%= form.input :price_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+          </div>
+          <div class="rate" data-controller="rating">
+            <div class="emoji" data-rating-target="emoji">😑</div>
+            <%= form.input :crowd_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+          </div>
+          <div class="rate" data-controller="rating">
+            <div class="emoji" data-rating-target="emoji">😑</div>
+            <%= form.input :food_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+          </div>
+          <div class="rate" data-controller="rating">
+            <div class="emoji" data-rating-target="emoji">😑</div>
+            <%= form.input :location_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+          </div>
           <%= form.submit 'Submit Your Review' %>
         <% end %>
       </div>

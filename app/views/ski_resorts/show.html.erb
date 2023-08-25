@@ -9,8 +9,8 @@
       <%= f.submit 'Check in', class: "btn btn-secondary btn-block w-100 p-3" %>
     <% end %>
   <% end %>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Write your review
   </button>
   <div class="info text-light">
     <% if current_user.checked_in_today?(@ski_resort) %>

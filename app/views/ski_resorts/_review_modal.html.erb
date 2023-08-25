@@ -10,30 +10,30 @@
         <%= simple_form_for [@ski_resort, @review] do |form| %>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+            <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
           </div>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :price_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+            <%= form.input :price_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
           </div>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :crowd_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+            <%= form.input :crowd_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
           </div>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :food_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+            <%= form.input :food_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
           </div>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :location_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+            <%= form.input :location_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
           </div>
-          <%= form.submit 'Submit Your Review' %>
+          <div class="modal-footer">
+            <%= form.submit 'Submit Your Review' %>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%# <button type="button" class="btn btn-primary">Submit</button> %>
+          </div>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>

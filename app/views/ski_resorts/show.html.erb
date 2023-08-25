@@ -29,9 +29,9 @@
     <%= link_to "Sign in", new_user_session_path, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
   <% end %>
   <div class="info text-light">
-    <% if current_user.checked_in_today?(@ski_resort) %>
-      user checked in!
-    <% end %>
+    <%# <% if current_user.checked_in_today?(@ski_resort) %>
+    <%# user checked in! %>
+    <%# <% end %>
     <div class="caracteristiques d-flex justify-content-around">
       <div class="d-flex flex-column">
         <p class="mb-1 mt-2">Length</p>

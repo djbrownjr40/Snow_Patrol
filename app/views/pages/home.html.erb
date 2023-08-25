@@ -1,18 +1,15 @@
 <%# if user exists redirect to a page statement here (else use code below) %>
 <div class="container" style="padding: 0;">
   <div class="auroral-northern"></div>
-  <div class="auroral-stars"></div>
-  <div class="container">
-    <div style="height: 225px"></div>
-    <div class="m-3 text-center">
-      <h1 class="pink-text">Welcome to Snow Patrol!</h1>
-      <p class="white-text">Search for slopes with perfect snow.</p>
-      <div class="input-group">
-        <%= render "ski_resorts/search_bar" %>
-      </div>
+  <div>
+    <div style="height: 190px"></div>
+    <div class="container p-3">
+      <h1 class="title">Welcome to <span id="logo">Snow Patrol</span></h1>
+      <p>Search for slopes with perfect snow.</p>
     </div>
     <%# <div class="d-grid gap-2 col-8 mx-auto">
       <%= link_to 'Find Ski Resorts', ski_resorts_path, class: 'btn btn-primary', type: 'button', id: 'search'%>
     <%# </div> %>
+    <%= render "ski_resorts/search_bar" %>
   </div>
 </div>

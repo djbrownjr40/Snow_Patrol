@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :set_check_in, only:[:new, :index, :create, :show]
+
   def index
     @reviews = @check_in.reviews
   end
@@ -8,11 +10,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @check_in = CheckIn.find(params[:check_in_id])
-    @review = @check_in.reviews.build(reviews_params)
-
+    @review = Review.new(review_params)
+    @review.check_in = @check_in
     if @review.save
-      redirect_to check_in_path(@check_in), notice: 'Your review have submitted successfully! 🤙'
+      redirect_to ski_resort_path(@check_in.ski_resort), notice: 'Your review have submitted successfully! 🤙'
     else
       render 'new'
     end
@@ -24,7 +25,7 @@ class ReviewsController < ApplicationController
     @check_in = CheckIn.find(params[:check_in_id])
   end
 
-  # def review_params
-  #   params.require(:review).permit(:lift_wait_rating, :price_rating, :crowd_rating, :food_rating, :location_rating)
-  # end
+  def review_params
+    params.require(:review).permit(:lift_wait_rating, :price_rating, :crowd_rating, :food_rating, :location_rating)
+  end
 end

@@ -8,7 +8,10 @@
 <%# plus the reviews btn %>
 <div class="reviews-display">
   <div class="each bg-light">
-    <p>Your Snow report:</p>
+    <p >Your Snow report:</p>
+    <% if !current_user.check_ins.last.snow_reports.nil? && !current_user.check_ins.last.snow_reports.empty? %>
+      <%= current_user.check_ins.last.snow_reports.last.rating %>
+    <% end %>
   </div>
   <div class="each bg-light">
     <p>Lift Waiting Times:</p>

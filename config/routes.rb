@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :ski_resorts, only: [:index, :show] do
     resources :check_ins, only: [:create]
     resources :snow_reports, only: [:create]
-    resources :reviews, only: [:new, :create]
   end
 
   resources :check_ins, only: [:update] do
+    resources :reviews, only: [:create]
     # resources :snow_reports, only: [:create]
     # resources :reviews, only: [:create]
   end

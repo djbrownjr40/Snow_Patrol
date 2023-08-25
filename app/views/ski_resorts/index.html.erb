@@ -1,11 +1,11 @@
-<ul data-search-target="cards" class="cards fixed-bottom">
+<ul data-search-target="cards" class="cards fixed-bottom m-0">
   <% @ski_resorts.each do |ski_resort|%>
-    <li class="card mx-2">
+    <li class="card mx-2 h">
       <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
     </li>
   <% end %>
 </ul>
-<div style='height: 788px; postion: relative'>
+<div style='position: relative; height: 777;'>
   <%= render "ski_resorts/search_bar" %>
   <%= render "shared/map" %>
 </div>

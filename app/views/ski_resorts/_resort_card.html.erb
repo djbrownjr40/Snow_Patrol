@@ -7,17 +7,15 @@
       <%= link_to "", ski_resort_path(ski_resort.id), class: 'btn' %>
     </div>
     <% if ski_resort.average_rating == 0 %>
-      <i class="fa-regular fa-face-smile" style="color: #000000;"></i>
+      ☀ CLEAR
     <% elsif ski_resort.average_rating == 1%>
-      <i class="fa-regular fa-face-smile" style="color: #d71414;"></i>
+      ⛆ RAIN
     <% elsif ski_resort.average_rating == 2%>
-      <i class="fa-regular fa-face-smile" style="color: #d77c14;"></i>
+      🧊 ICE
     <% elsif ski_resort.average_rating == 3 %>
-      <i class="fa-regular fa-face-smile" style="color: #c2b30f;"></i>
-    <% elsif ski_resort.average_rating == 4 %>
-      <i class="fa-regular fa-face-smile" style="color: #1bc20f;"></i>
-    <% else %>
-      <i class="fa-regular fa-face-smile" style="color: #143bd7;"></i>
+      🌨️ SNOWY
+    <% else ski_resort.average_rating == 4 %>
+      ❄️ POW!
     <% end %>
   </div>
   <%= image_tag "ski_resort.jpg", class: "mx-3 mb-4" %>

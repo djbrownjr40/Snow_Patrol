@@ -1,0 +1,44 @@
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// .snow-rate {
+// 	text-align: center;
+// 	width: 200px;
+// 	height: 200px;
+// 	// outline: thin solid lightgray;
+// }
+// .snow-emoji {
+// 	font-size: 120px;
+// 	height: 170px;
+// 	line-height: 170px;
+//   text-align: center;
+// }
+
+// input {
+// 	cursor: ew-resize;
+// }
+
+
+.snow-rate {
+  text-align: center;
+  width: 200px;
+  height: 200px;
+}
+
+.snow-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 720px;
+  height: 170px;
+  line-height: 170px;
+  text-align: center;
+}
+
+input {
+  cursor: ew-resize;
+}

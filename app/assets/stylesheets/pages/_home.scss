@@ -1,50 +1,64 @@
 // Specific CSS for your home-page
-.pink-text{
-  color: $pink;
+.title{
+  color: $white-blue;
+  font-weight: 700;
+  font-size: 35pt;
+
+  #logo {
+    text-decoration-line: underline;
+    text-underline-offset: 5pt;
+    text-decoration-thickness: 2pt;
+  }
 }
-.white-text{
-  color:aliceblue;
+p{
+  color: $white-blue;
 }
+#search {
+  background-color: $light-blue;
+  color: $gray;
+}
+
+
 
 
 /* We start with setting the variables: how many stars there should be and an empty variable declaration for later */
-$star-number: 100;
-$current-stars: 10;
+// $star-number: 100;
+// $current-stars: 10;
 
-/* Now we just style this one 1px by 1px div to be a round dot fixed in top left corner */
-.auroral-stars {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-  background: white;
+// /* Now we just style this one 1px by 1px div to be a round dot fixed in top left corner */
+// .auroral-stars {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   display: block;
+//   width: 1px;
+//   height: 1px;
+//   border-radius: 50%;
+//   background: white;
 
-  /* We count down from the number of stars that we chose to have: */
-  @while $star-number > 0 {
+//   /* We count down from the number of stars that we chose to have: */
+//   @while $star-number > 0 {
 
-    /* And with each iteration we concatenate string with another box shadow declaration.
-    We set random position for the box shadow and random size (from 1 to 2 px).
-    The last thing to add is a comma, but we need to use and unquote function to add that */
+//     /* And with each iteration we concatenate string with another box shadow declaration.
+//     We set random position for the box shadow and random size (from 1 to 2 px).
+//     The last thing to add is a comma, but we need to use and unquote function to add that */
 
-    $current-stars: $current-stars
-                    + (random(100) +vw) (random(100) +vh) 0 (random(2) +px) rgb(255, 255, 255)
-                    + unquote(", ");
+//     $current-stars: $current-stars
+//                     + (random(100) +vw) (random(100) +vh) 0 (random(2) +px) rgb(255, 255, 255)
+//                     + unquote(", ");
 
-    /* The last box shadow needs to be added without a comma.
-     After we have the whole string ready, we add it to the box-shadow as a value */
-    @if $star-number == 1 {
-      $current-stars: $current-stars
-                      + (random(100) +vw) (random(50) +vh) 0 0 rgb(255, 255, 255);
-      box-shadow: $current-stars;
-    }
+//     /* The last box shadow needs to be added without a comma.
+//      After we have the whole string ready, we add it to the box-shadow as a value */
+//     @if $star-number == 1 {
+//       $current-stars: $current-stars
+//                       + (random(100) +vw) (random(50) +vh) 0 0 rgb(255, 255, 255);
+//       box-shadow: $current-stars;
+//     }
 
-    /* Remember to count down. Otherwise you will end up with an infinite loop */
-    $star-number: $star-number - 1;
-  }
-}
+//     /* Remember to count down. Otherwise you will end up with an infinite loop */
+//     $star-number: $star-number - 1;
+//   }
+// }
 
 @keyframes northern {
   0% {
@@ -68,13 +82,13 @@ $current-stars: 10;
   }
 
   100% {
-    transform: rotate(20deg);
+    transform: rotate(30deg);
   }
 }
 
 .container {
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   overflow: hidden;
   position: absolute;
 }
@@ -90,5 +104,5 @@ $current-stars: 10;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  background: linear-gradient(10deg, #a1d9b4 20%, #32988a 40%, #000e3c 70%);
+  background: linear-gradient(10deg, #97b4eb 20%, #6d287a 40%, #000000 70%);
 }

@@ -1,0 +1,22 @@
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.rate {
+	text-align: center;
+	width: 200px;
+	height: 200px;
+	outline: thin solid lightgray;
+}
+.emoji {
+	font-size: 120px;
+	height: 170px;
+	line-height: 170px;
+}
+
+input {
+	cursor: ew-resize;
+}

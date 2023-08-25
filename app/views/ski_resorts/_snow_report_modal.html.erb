@@ -9,11 +9,14 @@
 
           <%= simple_form_for [@ski_resort, @snow_report] do |form| %>
         <div class="modal-body">
-            <div class="rate" data-controller="snow-report">
+          <div class="d-flex justify-content-center align-items-center" style="height: 30vh;">
+
+            <div class="snow-rate" data-controller="snow-report">
 	            <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
-            <%= form.input :rating, as: :range,  input_html: {data: {action: "change->snow-report#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+            <%= form.input :rating, as: :range,  input_html: {data: {action: "change->snow-report#changeEmoji"}, min:"0", max:"4", step:"1"}, class:"form-range" %>
             </div>
-        </div>
+          </div>
+          </div>
         <div class="modal-footer">
             <%= form.submit 'Submit Snow Report' %>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

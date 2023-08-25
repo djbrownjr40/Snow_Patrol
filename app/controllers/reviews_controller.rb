@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
     @check_in = CheckIn.find(params[:check_in_id])
   end
 
-  # def review_params
-  #   params.require(:review).permit(:lift_wait_rating, :price_rating, :crowd_rating, :food_rating, :location_rating)
-  # end
+  def review_params
+    params.require(:review).permit(:lift_wait_rating, :price_rating, :crowd_rating, :food_rating, :location_rating)
+  end
 end

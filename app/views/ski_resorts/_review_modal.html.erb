@@ -7,8 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-rate-body">
-      
-        <%= simple_form_for [@ski_resort, @review] do |form| %>
+        <%= simple_form_for([check_in, review], remote: true, html: {class: "review-form"}) do |form| %>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
             <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
@@ -32,7 +31,6 @@
           <div class="modal-footer">
             <%= form.submit 'Submit Your Review' %>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <%# <button type="button" class="btn btn-primary">Submit</button> %>
           </div>
         <% end %>
       </div>

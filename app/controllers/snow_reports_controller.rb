@@ -8,8 +8,14 @@ class SnowReportsController < ApplicationController
   end
 
   def create
-    # snow_report = SnowReport.new(@snow_report)
-		# snow_report.save
+    @check_in = CheckIn.find(params[:check_in_id])
+    @snow_report = @check_in.snow_report.build(snow_report_params)
+
+    if @snow_report.save
+      redirect_to check_in_path(@check_in), notice: 'Your review have submitted successfully! 🤙'
+    else
+      render 'new'
+    end
   end
 
   private

@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to ski_resort_path(@check_in.ski_resort), notice: 'Your review have submitted successfully! 🤙'
     else
-      render 'new'
+      redirect_to ski_resort_path(@check_in.ski_resort)
     end
   end
 

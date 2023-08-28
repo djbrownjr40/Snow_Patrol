@@ -6,14 +6,16 @@
       <p class="mt-1"> <%= ski_resort.description %></p>
       <%= link_to "", ski_resort_path(ski_resort.id), class: 'btn' %>
     </div>
-    <% if ski_resort.current_condition == 'clear' %>
+    <% if ski_resort.current_condition    == 'No Snow :(' %>
       ☀ CLEAR
-    <% elsif ski_resort.current_condition == 'rain'%>
+    <% elsif ski_resort.current_condition == 'Slushy' %>
       ⛆ RAIN
-    <% elsif ski_resort.current_condition == 'ice'%>
+    <% elsif ski_resort.current_condition == 'Icy' %>
       🧊 ICE
-    <% elsif ski_resort.current_condition == 'snowy' %>
+    <% elsif ski_resort.current_condition == 'Groomed Snow' %>
       🌨️ SNOWY
+    <% elsif ski_resort.current_condition == 'Packed Powder' %>
+      🌨️ PACKED POWEDER!
     <% elsif ski_resort.current_condition == 'pow' %>
       ❄️ POW!
     <% else %>

@@ -6,20 +6,20 @@
         <h1 class="modal-title fs-5" id="snowBackdropLabel">What's the snow like?</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <%= simple_form_for [@ski_resort, @snow_report] do |form| %>
-        <div class="modal-body">
+      <div class="modal-body">
+        <%= simple_form_for [@ski_resort, @snow_report] do |form| %>
           <div class="d-flex justify-content-center align-items-center" style="height: 30vh;">
             <div class="snow-rate" data-controller="snow-report">
               <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
-              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first, input_html: {data: {action: "change->snow-report#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
+              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first, input_html: {data: {action: "change->snow-report#changeEmoji"} } %>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <%= form.submit 'Submit Snow Report' %>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      <% end %>
+          <div class="modal-footer">
+            <%= form.submit 'Submit Snow Report' %>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,8 +2,8 @@
 .cards {
   display: flex;
   list-style: none;
-  overflow-x: scroll;
-  overflow-y: auto;
+  // overflow-x: scroll;
+  // overflow-y: auto;
   scroll-snap-type: x mandatory;
 
   // style each li

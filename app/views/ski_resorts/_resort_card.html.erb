@@ -20,3 +20,9 @@
   </div>
   <%= image_tag "ski_resort.jpg", class: "mx-3 mb-4" %>
 </div>
+<%# highest rated snow rating from other users %>
+<div class="highest-snow-rating">
+  <strong>Highest Snow Rating:</strong>
+  <%= ski_resort.snow_reports.maximum(:snow_rating) %>
+</div>
+</div>

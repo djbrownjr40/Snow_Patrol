@@ -25,8 +25,6 @@ class SnowReportsController < ApplicationController
     @check_in = CheckIn.find(params[:check_in_id])
   end
 
-  private
-
   def snow_report_params
     params.require(:snow_report).permit(:rating)
   end

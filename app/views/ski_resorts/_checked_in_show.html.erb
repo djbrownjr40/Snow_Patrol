@@ -1,6 +1,7 @@
 <div class='home-container'>
-  <div style='height:94%; width: 100%; background-color: #000000'></div>
-  <footer class=' d-flex justify-content-evenly'>
+  <div style='height: 87%; width: 100%; background-color: #000000'></div>
+  <footer>
+    <%= link_to "Check out", check_in_path(new_checkin), data: {turbo_method: :patch}, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Leave your review 📝
     </button>
@@ -9,8 +10,7 @@
     </button>
   </footer>
 </div>
-<%# <%= link_to "Check out", check_in_path(new_checkin), data: {turbo_method: :patch}, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
-<%# plus the reviews btn %>
+<%# plus the reviews btn
 <%# <div class="reviews-display">
     <%# <div class="each bg-light"> %>
 <%# <p >Your Snow report:</p>

@@ -37,4 +37,11 @@ class SkiResort < ApplicationRecord
     end
     sum / reviews.length
   end
+
+  def current_condition
+    reports = snow_reports.where("DATE(snow_reports.created_at) = ?", Date.today)
+    return unless reports.present?
+
+    reports.group(:rating).count.max_by { |condition, count| count }[0]
+  end
 end

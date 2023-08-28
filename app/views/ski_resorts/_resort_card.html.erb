@@ -6,23 +6,19 @@
       <p class="mt-1"> <%= ski_resort.description %></p>
       <%= link_to "", ski_resort_path(ski_resort.id), class: 'btn' %>
     </div>
-    <% if ski_resort.average_rating == 0 %>
+    <% if ski_resort.current_condition == 'clear' %>
       ☀ CLEAR
-    <% elsif ski_resort.average_rating == 1%>
+    <% elsif ski_resort.current_condition == 'rain'%>
       ⛆ RAIN
-    <% elsif ski_resort.average_rating == 2%>
+    <% elsif ski_resort.current_condition == 'ice'%>
       🧊 ICE
-    <% elsif ski_resort.average_rating == 3 %>
+    <% elsif ski_resort.current_condition == 'snowy' %>
       🌨️ SNOWY
-    <% else ski_resort.average_rating == 4 %>
+    <% elsif ski_resort.current_condition == 'pow' %>
       ❄️ POW!
+    <% else %>
+      No reports today yet!
     <% end %>
   </div>
   <%= image_tag "ski_resort.jpg", class: "mx-3 mb-4" %>
-</div>
-<%# highest rated snow rating from other users %>
-<div class="highest-snow-rating">
-  <strong>Highest Snow Rating:</strong>
-  <%= ski_resort.snow_reports.maximum(:snow_rating) %>
-</div>
 </div>

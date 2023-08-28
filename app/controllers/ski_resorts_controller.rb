@@ -13,7 +13,8 @@ class SkiResortsController < ApplicationController
         lat: ski_resort.latitude,
         lng: ski_resort.longitude,
         title: ski_resort.name,
-        description: ski_resort.description
+        description: ski_resort.description,
+        marker_id: ski_resort.id
       }
     end
   end

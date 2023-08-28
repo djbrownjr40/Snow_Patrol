@@ -9,7 +9,7 @@ class SnowReportsController < ApplicationController
 
   def create
     @ski_resort = SkiResort.find(params[:ski_resort_id])
-    @check_in = @ski_resort.check_ins.last
+    @check_in = current_user.active_check_in
     @snow_report = @check_in.snow_reports.build(snow_report_params)
 
     if @snow_report.save

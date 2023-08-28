@@ -1,0 +1,7 @@
+<h2><%= ski_resort.name %></h2>
+<% average_rating = ski_resort.average_rating %>
+<% whole_stars = average_rating.floor %>
+<% whole_stars.times do %>
+<span class="star">⭐</span>
+<% end %>
+<p>$$</p>

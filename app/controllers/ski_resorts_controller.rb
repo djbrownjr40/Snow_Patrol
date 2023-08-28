@@ -13,7 +13,8 @@ class SkiResortsController < ApplicationController
         lat: ski_resort.latitude,
         lng: ski_resort.longitude,
         title: ski_resort.name,
-        description: ski_resort.description
+        description: ski_resort.description,
+        info_window_html: render_to_string(partial: "info_window", locals: {ski_resort: ski_resort})
       }
     end
   end

@@ -26,5 +26,5 @@
     <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
   <% end %>
 </div>
-<%= render 'review_modal', review: @review, check_in: new_checkin %>
+<%= render 'review_modal', review: @review, check_in: new_checkin if !new_checkin.nil? %>
 <%= render 'snow_report_modal' %>

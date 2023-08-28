@@ -18,23 +18,8 @@
             </div>
           </div>
           </div>
-
-          <%# snow descriptions %>
-          <h1>Snow Guide</h1>
-          <h2>Powder Snow</h2>
-            <p>Powder snow, or "pow" for short, is freshly fallen, light, dry, and fluffy snow. It's the holy grail among skiers and snowboarders for its soft and smooth texture. Excellent for floatation and the feeling of gliding on top of the snow.</p>
-          <h2>Packed Powder</h2>
-            <p>Packed powder is snow that has been compacted from the pressure of skiers and riders. It offers a good balance between softness and stability, making it suitable for carving turns and maintaining control.</p>
-          <h2>Groomed Snow</h2>
-            <p>Groomed snow happens when the resort's grooming machines flatten and smooth the snow surface. It provides a consistent and even surface, making it easier for skiers and snowboarders to control their movements. Groomed runs are popular for carving and practicing technique.</p>
-          <h2>Icy</h2>
-            <p>Icy conditions occur when the snow freezes and becomes hard, creating a slippery surface. Icy slopes can be challenging to navigate and require precise control and edge grip to maintain stability and control.</p>
-          <h2>Slushy</h2>
-            <p>Slushy or wet snow occurs as temperatures rise, causing the snow to melt and become wet. It can create heavy, sticky conditions that are more difficult to maneuver through. Slushy snow tends to be slower and requires adjustments in technique.</p>
-          <h2>No Snow</h2>
-            <p>No snow is a no-go! Stay home or hit the hot spring instead.
+        <%= render 'snow_guide' %>
         <div class="modal-footer">
-
             <%= form.submit 'Submit Snow Report' %>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <%# <button type="button" class="btn btn-primary">Understood</button> %>

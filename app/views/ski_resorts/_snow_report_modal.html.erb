@@ -1,5 +1,4 @@
-
-  <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="snowBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="snowBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -8,21 +7,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@ski_resort, @snow_report] do |form| %>
+        <%= simple_form_for [ski_resort, snow_report] do |form| %>
           <div>
             <div class="snow-rate">
               <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
               <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first %>
             </div>
           </div>
-          </div>
+        </div>
         <%= render 'snow_guide' %>
         <div class="modal-footer">
-            <%= form.submit 'Submit Snow Report' %>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        <% end %>
-      </div>
+          <%= form.submit 'Submit Snow Report' %>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>

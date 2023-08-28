@@ -6,14 +6,14 @@
         <h1 class="modal-title fs-5" id="snowBackdropLabel">What's the snow like?</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for [ski_resort, snow_report] do |form| %>
+      <%= simple_form_for [ski_resort, snow_report] do |form| %>
+        <div class="modal-body">
           <div class="snow-rate">
-            <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
+            <div class="snow-emoji" data-snow-report-target="snowEmoji">:snowflake:</div>
             <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first %>
           </div>
+          <%= render 'snow_guide' %>
         </div>
-        <%= render 'snow_guide' %>
         <div class="modal-footer">
           <%= form.submit 'Submit Snow Report' %>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

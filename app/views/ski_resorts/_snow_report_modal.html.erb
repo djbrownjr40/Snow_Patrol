@@ -8,10 +8,10 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@ski_resort, @snow_report] do |form| %>
-          <div class="d-flex justify-content-center align-items-center" style="height: 30vh;">
-            <div class="snow-rate" data-controller="snow-report">
+          <div>
+            <div class="snow-rate">
               <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
-              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first, input_html: {data: {action: "change->snow-report#changeEmoji"} } %>
+              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first %>
             </div>
           </div>
           <div class="modal-footer">

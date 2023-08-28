@@ -11,14 +11,13 @@
           <div class="d-flex justify-content-center align-items-center" style="height: 30vh;">
             <div class="snow-rate" data-controller="snow-report">
               <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
-              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first, input_html: {data: {action: "change->snow-report#changeEmoji"}, min:"0", max:"4", step:"1"}, class:"form-range" %>
+              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first, input_html: {data: {action: "change->snow-report#changeEmoji"}, min:"0", max:"5", step:"1"}, class:"form-range" %>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <%= form.submit 'Submit Snow Report' %>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <%# <button type="button" class="btn btn-primary">Understood</button> %>
         </div>
       <% end %>
     </div>

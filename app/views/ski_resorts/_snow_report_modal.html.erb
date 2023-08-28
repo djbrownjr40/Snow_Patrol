@@ -8,11 +8,9 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [ski_resort, snow_report] do |form| %>
-          <div>
-            <div class="snow-rate">
-              <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
-              <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first %>
-            </div>
+          <div class="snow-rate">
+            <div class="snow-emoji" data-snow-report-target="snowEmoji">❄️</div>
+            <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first %>
           </div>
         </div>
         <%= render 'snow_guide' %>
@@ -23,5 +21,4 @@
       <% end %>
     </div>
   </div>
-</div>
 </div>

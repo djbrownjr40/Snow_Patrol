@@ -1,3 +1,4 @@
+
   <!-- Modal -->
 <div class="modal fade" id="snowBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="snowBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -14,7 +15,9 @@
               <%= form.collection_radio_buttons :rating, SnowReport.ratings, :first, :first %>
             </div>
           </div>
-          <div class="modal-footer">
+          </div>
+        <%= render 'snow_guide' %>
+        <div class="modal-footer">
             <%= form.submit 'Submit Snow Report' %>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>

@@ -26,5 +26,6 @@ class SkiResortsController < ApplicationController
     @check_in = CheckIn.new
     @review = Review.new
     @snow_report = SnowReport.new
+    @snow_ratings = @ski_resort.snow_reports.group_by_hour(:created_at).average(:rating)
   end
 end

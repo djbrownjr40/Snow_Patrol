@@ -1,3 +1,4 @@
+
 <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
      data-map-markers-value="<%= @markers.to_json %>">
   <ul data-search-target="cards" class="cards fixed-bottom mb-3 bs-3"data-action="scroll->map#updateMarkerColors">

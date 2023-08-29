@@ -15,6 +15,15 @@
     border-radius: 12px;
     scroll-snap-align: start;
     transition: all 0.2s;
+    height: 275px;
+  }
+
+  .card .image {
+    object-fit: cover;
+    width: 200px;
+    height: 225px;
+    align-self: center;
+    border-radius: 10px;
   }
 }
 

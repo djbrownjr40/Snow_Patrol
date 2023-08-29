@@ -1,0 +1,13 @@
+  <%# B: checks if the user has a previous check-in, from which they have not checked out %>
+<% if current_user&.active_check_in %>
+  <%# C: checks if the current check-in is at the ski resort the user is currently viewing %>
+  <%= link_to "Check out from #{current_user.active_check_in.ski_resort.name}", ski_resort_path(current_user.active_check_in.ski_resort), class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
+  <%# B: No else statement %>
+<% elsif user_signed_in? %>
+  <%= simple_form_for([@ski_resort, @check_in], remote: true) do |f|  %>
+    <%= f.submit 'Check in', class: "bby-blue-btn btn btn-secondary btn-block w-100 p-3" %>
+  <% end %>
+<% else %>
+  <%# A: Link to sign-in page %>
+  <%= link_to "Sign in", new_user_session_path, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
+<% end %>

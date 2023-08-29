@@ -10,7 +10,11 @@ class User < ApplicationRecord
   has_many :ski_resorts, through: :check_ins
 
   def checked_in_today?(resort)
-    check_ins.find_by(user: self, ski_resort: resort, created_at: Date.today.all_day)
+    check_ins.find_by(ski_resort: resort, created_at: Date.today.all_day)
+  end
+
+  def active_check_in
+    check_ins.find_by(checked_out_at: nil)
   end
   # validates :username, :first_name, :last_name, presence: true
 end

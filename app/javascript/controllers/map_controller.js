@@ -25,9 +25,11 @@ export default class extends Controller {
     this.markersValue.forEach((markerData) => {
       const customMarker = document.createElement("div");
       customMarker.innerHTML = markerData.marker_html;
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([markerData.lng, markerData.lat])
+        .setPopup(popup)
         .addTo(this.map);
 
       // Attach the ski resort ID to the marker element

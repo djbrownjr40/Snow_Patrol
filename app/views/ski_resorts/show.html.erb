@@ -2,9 +2,6 @@
   <%= render "ski_resorts/checked_in_show", ski_resort: @ski_resort, new_checkin: current_user.active_check_in %>
   <%# C: renders a show with a "check-out at X and check-in here button" %>
 <% else %>
-   <div style='height: 45%; width: 100%'>
-    <%= render 'shared/map' %>
-  </div>
   <div class="ski-resort-info bg-primary px-4 py-3 ">
     <p class="snow-report p-1 bg-success text-center">Right now we have pow snow!! </p>
     <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>

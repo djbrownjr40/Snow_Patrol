@@ -11,8 +11,6 @@ export default class extends Controller {
   static targets = ["map"]
 
   connect() {
-    console.log(this.mapTarget);
-    console.log(this.apiKeyValue);
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
       container: this.mapTarget, // container ID
@@ -25,12 +23,15 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((markerData) => {
-      const marker = new mapboxgl.Marker()
+      const customMarker = document.createElement("div");
+      customMarker.innerHTML = markerData.marker_html;
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([markerData.lng, markerData.lat])
         .addTo(this.map);
 
       // Attach the ski resort ID to the marker element
-      marker.getElement().setAttribute("data-ski-resort-id", markerData.marker_id);
+      customMarker.setAttribute("data-ski-resort-id", markerData.marker_id);
     });
   }
 
@@ -62,19 +63,23 @@ export default class extends Controller {
     console.log(event);
     const visibleCard = this.#findVisibleCard(event.target)
     const skiResortId = visibleCard.getAttribute("data-ski-resort-id");
+    console.log(visibleCard);
+    console.log(skiResortId);
 
-    console.log(this.map);
-    this.markersValue.forEach(marker => {
-      const new_marker = this.map.getLayer(marker.id);
-      console.log(new_marker);
-      if (new_marker) {
-        if (marker.id === skiResortId) {
-          // Change marker color for the visible card
-          new_marker.getElement().style.color = "red";
-        } else {
-          // Reset color for other markers
-          new_marker.getElement().style.color = "blue";
-        }
+    const all_markers = document.querySelectorAll(".mapboxgl-marker")
+    console.log(all_markers);
+    all_markers.forEach(marker => {
+      console.log(marker);
+      console.log(marker.dataset.skiResortId);
+      console.log(skiResortId);
+      console.log(marker.marker_id === skiResortId);
+
+      if (marker.dataset.skiResortId === skiResortId) {
+        // Change marker color for the visible card
+        marker.innerHTML = "<i class='fa-regular fa-snowflake' style='color: #ff8298;'></i>";
+      } else {
+        // Reset color for other markers
+        marker.innerHTML = "<i class='fa-regular fa-snowflake' style='color: #073763;'></i>";
       }
     });
   }

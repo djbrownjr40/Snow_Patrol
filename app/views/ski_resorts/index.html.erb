@@ -1,8 +1,8 @@
 <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
      data-map-markers-value="<%= @markers.to_json %>">
-  <ul data-search-target="cards" class="cards fixed-bottom mb-3 bs-3"data-action="scroll->map#updateMarkerColors">
+  <ul data-search-target="cards" class="cards fixed-bottom mx-2" data-action="scroll->map#updateMarkerColors">
     <% @ski_resorts.each do |ski_resort| %>
-      <li class="card mx-2" data-ski-resort-id="<%= ski_resort.id %>">
+      <li class="card" data-ski-resort-id="<%= ski_resort.id %>">
         <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
       </li>
     <% end %>

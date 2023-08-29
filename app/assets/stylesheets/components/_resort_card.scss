@@ -3,7 +3,6 @@
   display: flex;
   list-style: none;
   overflow-x: scroll;
-  overflow-y: auto;
   scroll-snap-type: x mandatory;
 
   // style each li
@@ -11,14 +10,23 @@
     display: flex;
     flex-direction: column;
     flex: 0 0 100%;
-    background: var(--white);
+    background-color: rgba(240, 248, 255, 0);
+    border-color: rgba(240, 248, 255, 0);
+  }
+
+  .resort-card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
     border-radius: 12px;
     scroll-snap-align: start;
     transition: all 0.2s;
     height: 275px;
+    width: 375px;
+    border-color: rgb(91, 91, 91);
   }
 
-  .card .image {
+  .resort-card .image {
     object-fit: cover;
     width: 200px;
     height: 225px;

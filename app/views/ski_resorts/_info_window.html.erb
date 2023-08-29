@@ -18,7 +18,7 @@
 <div class="current-condition-line d-flex align-items-center">
   <div class="condition-svg mr-2">
     <% if ski_resort.current_condition == 'no_snow' %>
-      <%= image_tag "nosnow.svg", alt: "No snow", class: "svg-icon-small", width: 15, height: 15 %> NO SNOW!
+      <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small", width: 15, height: 15 %> NO SNOW!
     <% elsif ski_resort.current_condition == 'slushy' %>
       <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small", width: 15, height: 15 %> SLUSHY!
     <% elsif ski_resort.current_condition == 'icy' %>

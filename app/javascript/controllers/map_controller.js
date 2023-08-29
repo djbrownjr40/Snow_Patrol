@@ -11,6 +11,7 @@ export default class extends Controller {
   static targets = ["map"]
 
   connect() {
+    console.log("Conected!");
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
       container: this.mapTarget, // container ID
@@ -25,7 +26,7 @@ export default class extends Controller {
     this.markersValue.forEach((markerData) => {
       const customMarker = document.createElement("div");
       customMarker.innerHTML = markerData.marker_html;
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      const popup = new mapboxgl.Popup().setHTML(markerData.info_window_html);
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([markerData.lng, markerData.lat])

@@ -27,3 +27,5 @@ pin "suggestions", to: "https://ga.jspm.io/npm:suggestions@1.7.1/index.js"
 pin "xtend", to: "https://ga.jspm.io/npm:xtend@4.0.2/immutable.js"
 pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
+pin "swiper", to: "https://ga.jspm.io/npm:swiper@10.2.0/swiper.mjs"
+

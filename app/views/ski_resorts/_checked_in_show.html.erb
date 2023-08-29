@@ -1,5 +1,6 @@
 <div class='home-container'>
-  <div style='height: 87%; width: 100%;'>
+  <div data-controller='map' data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+     data-map-markers-value="<%= @markers.to_json %>" style='height: 87%; width: 100%;'>
     <%= render 'shared/map' %>
   </div>
   <footer>

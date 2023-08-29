@@ -14,6 +14,8 @@ class SkiResortsController < ApplicationController
         lng: ski_resort.longitude,
         title: ski_resort.name,
         description: ski_resort.description,
+        marker_id: ski_resort.id,
+        marker_html: "<i class='fa-regular fa-snowflake' style='color: #073763;'></i>",
         info_window_html: render_to_string(partial: "info_window", locals: {ski_resort: ski_resort})
       }
     end
@@ -32,5 +34,7 @@ class SkiResortsController < ApplicationController
         description: @ski_resort.description,
         info_window_html: render_to_string(partial: "info_window", locals: {ski_resort: @ski_resort})
       }]
+    @snow_ratings = @ski_resort.snow_reports.group_by_hour(:created_at).average(:rating)
+
   end
 end

@@ -1,5 +1,5 @@
-import { Controller } from "@hotwired/stimulus"
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import { Controller } from "@hotwired/stimulus";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -9,26 +9,37 @@ export default class extends Controller {
     resortInfo: Boolean
   }
 
+  static targets = ["map"]
+
   connect() {
+    console.log("Conected!");
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
-      container: this.element, // container ID
+      container: this.mapTarget, // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
     });
-  this.#addMarkersToMap()
-  this.#fitMapToMarkers()
-  if (this.resortInfoValue) {
-    this.#addSkiResortInfo()
+
+    this.#addMarkersToMap()
+    this.#fitMapToMarkers()
+    this.#setupCardScrollListener(); // New line to set up scroll listener
+    if (this.resortInfoValue) {
+      this.#addSkiResortInfo()
+    }
   }
-}
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
+    this.markersValue.forEach((markerData) => {
+      const customMarker = document.createElement("div");
+      customMarker.innerHTML = markerData.marker_html;
+      const popup = new mapboxgl.Popup().setHTML(markerData.info_window_html);
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([markerData.lng, markerData.lat])
         .setPopup(popup)
-        .addTo(this.map)
+        .addTo(this.map);
+
+      // Attach the ski resort ID to the marker element
+      customMarker.setAttribute("data-ski-resort-id", markerData.marker_id);
     });
   }
 
@@ -37,6 +48,7 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 15 })
   }
+
 
   #addSkiResortInfo() {
     this.map.on('load', () => {
@@ -74,4 +86,57 @@ export default class extends Controller {
       // });
       })
 }
+
+  #findVisibleCard(cardsContainer) {
+    const cards = cardsContainer.querySelectorAll(".card");
+    const containerRect = cardsContainer.getBoundingClientRect();
+
+    for (const card of cards) {
+      const cardRect = card.getBoundingClientRect();
+
+      if (
+        cardRect.left >= containerRect.left &&
+        cardRect.right <= containerRect.right
+      ) {
+        return card; // Return the first visible card
+      }
+    }
+
+    return null; // No visible card found
+  }
+
+  updateMarkerColors(event) {
+    console.log(event);
+    const visibleCard = this.#findVisibleCard(event.target)
+    const skiResortId = visibleCard.getAttribute("data-ski-resort-id");
+    console.log(visibleCard);
+    console.log(skiResortId);
+
+    const all_markers = document.querySelectorAll(".mapboxgl-marker")
+    console.log(all_markers);
+    all_markers.forEach(marker => {
+      console.log(marker);
+      console.log(marker.dataset.skiResortId);
+      console.log(skiResortId);
+      console.log(marker.marker_id === skiResortId);
+
+      if (marker.dataset.skiResortId === skiResortId) {
+        // Change marker color for the visible card
+        marker.innerHTML = "<i class='fa-regular fa-snowflake' style='color: #ff8298;'></i>";
+      } else {
+        // Reset color for other markers
+        marker.innerHTML = "<i class='fa-regular fa-snowflake' style='color: #073763;'></i>";
+      }
+    });
+  }
+
+  #setupCardScrollListener() {
+    const cardsContainer = document.querySelector("[data-controller='map']");
+    cardsContainer.addEventListener("scroll", () => {
+      const visibleCard = this.#findVisibleCard(cardsContainer);
+      if (visibleCard) {
+        this.updateMarkerColors(visibleCard);
+      }
+    });
+  }
 }

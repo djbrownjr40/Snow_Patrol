@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  if user_signed_in? && current_user.check_ins&.last.checked_out_at.nil?
-    root to: "ski_resorts#show"
-  else
-    root to: "pages#home"
-  end
+  root to: "pages#home"
 
   resources :ski_resorts, only: [:index, :show] do
     resources :check_ins, only: [:create]

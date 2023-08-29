@@ -1,8 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+  <% if user_signed_in? && current_user.check_ins&.last.checked_out_at.nil? %>
+    <%= link_to ski_resort_path(current_user.check_ins.last.ski_resort), class: "navbar-brand" do %>
+      <%= image_tag "sp_logo.png" %>
+    <% end %>
+  <% else %>
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "sp_logo.png" %>
     <% end %>
+  <% end %>
     <h1>Snow Patrol</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,7 +17,11 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <% if user_signed_in? && current_user.check_ins&.last.checked_out_at.nil? %>
+              <%= link_to "My Ski Resort", ski_resort_path(current_user.check_ins.last.ski_resort), class: "nav-link" %>
+            <% else %>
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item active">
             <%= link_to "Search", ski_resorts_path, class: "nav-link" %>

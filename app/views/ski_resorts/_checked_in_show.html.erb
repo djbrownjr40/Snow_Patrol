@@ -1,5 +1,7 @@
 <div class='home-container'>
-  <div style='height: 87%; width: 100%; background-color: #000000'></div>
+  <div style='height: 87%; width: 100%;'>
+    <iframe src="https://www.google.com/maps/d/embed?mid=16VPRMZK-XiRKcZk4yzphgNcfpTQ&hl=en&ehbc=2E312F" width="100%" height="100%"></iframe>
+  </div>
   <footer>
     <%= link_to "Check out", check_in_path(current_user.active_check_in), data: {turbo_method: :patch}, class:"bby-blue-btn btn btn-secondary btn-block w-100 p-3"%>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

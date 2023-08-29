@@ -24,5 +24,13 @@ class SkiResortsController < ApplicationController
     @check_in = CheckIn.new
     @review = Review.new
     @snow_report = SnowReport.new
+    @markers =
+      [{
+        lat: @ski_resort.latitude,
+        lng: @ski_resort.longitude,
+        title: @ski_resort.name,
+        description: @ski_resort.description,
+        info_window_html: render_to_string(partial: "info_window", locals: {ski_resort: @ski_resort})
+      }]
   end
 end

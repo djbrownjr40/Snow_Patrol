@@ -10,6 +10,8 @@
     <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>
     <%= render "ski_resorts/check_in_btn" %>
     <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
-    <%= render "ski_resorts/snow_graph" %>
+    <div style="background-color: ghostwhite;">
+      <%= render "ski_resorts/snow_graph" %>
+    </div>
   </div>
 <% end %>

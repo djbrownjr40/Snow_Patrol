@@ -2,8 +2,8 @@
   <%= render "ski_resorts/checked_in_show", ski_resort: @ski_resort, new_checkin: current_user.active_check_in %>
   <%# C: renders a show with a "check-out at X and check-in here button" %>
 <% else %>
-  <div class="map-container">
-    <%# <iframe src="https://www.google.com/maps/d/u/0/embed?mid=16VPRMZK-XiRKcZk4yzphgNcfpTQ" width="100%" height="290"></iframe> %>
+   <div style='height: 45%; width: 100%'>
+    <%= render 'shared/map' %>
   </div>
   <div class="ski-resort-info bg-primary px-4 py-3 ">
     <p class="snow-report p-1 bg-success text-center">Right now we have pow snow!! </p>

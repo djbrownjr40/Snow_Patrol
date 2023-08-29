@@ -86,6 +86,10 @@ end
 gem 'faker'
 gem 'pg_search'
 
+gem 'rgeo-geojson'
+
+
 gem "chartkick", "~> 5.0"
 
 gem "groupdate", "~> 6.3"
+

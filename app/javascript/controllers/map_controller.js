@@ -21,7 +21,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    this.#setupCardScrollListener(); // New line to set up scroll listener
+    // this.#setupCardScrollListener(); // New line to set up scroll listener
     if (this.resortInfoValue) {
       this.#addSkiResortInfo()
     }
@@ -130,13 +130,13 @@ export default class extends Controller {
     });
   }
 
-  #setupCardScrollListener() {
-    const cardsContainer = document.querySelector("[data-controller='map']");
-    cardsContainer.addEventListener("scroll", () => {
-      const visibleCard = this.#findVisibleCard(cardsContainer);
-      if (visibleCard) {
-        this.updateMarkerColors(visibleCard);
-      }
-    });
-  }
+  // #setupCardScrollListener() {
+  //   const cardsContainer = document.querySelector("[data-controller='map']");
+  //   cardsContainer.addEventListener("scroll", () => {
+  //     const visibleCard = this.#findVisibleCard(cardsContainer);
+  //     if (visibleCard) {
+  //       this.updateMarkerColors(visibleCard);
+  //     }
+  //   });
+  // }
 }

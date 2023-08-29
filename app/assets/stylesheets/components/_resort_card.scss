@@ -5,15 +5,15 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
 
-  // style each li
+  // class that conects cards to pins
   .card {
-    display: flex;
-    flex-direction: column;
     flex: 0 0 100%;
+    height: 275px;
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
   }
 
+  // style each li
   .resort-card {
     display: flex;
     flex-direction: column;
@@ -21,14 +21,13 @@
     border-radius: 12px;
     scroll-snap-align: start;
     transition: all 0.2s;
-    height: 275px;
     width: 375px;
     border-color: rgb(91, 91, 91);
   }
 
   .resort-card .image {
     object-fit: cover;
-    width: 200px;
+    width: 180px;
     height: 225px;
     align-self: center;
     border-radius: 10px;

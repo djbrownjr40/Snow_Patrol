@@ -9,7 +9,7 @@
       <%= simple_form_for [ski_resort, snow_report] do |f| %>
         <div class="modal-body">
           <div class="snow-rate">
-          <%= f.input :rating,
+            <%= f.input :rating,
             as: :radio_buttons,
             collection_wrapper_tag: 'div',
             collection_wrapper_class: 'category-wrapper',
@@ -19,14 +19,15 @@
             legend_tag: false,
             input_html: {class: 'category-selector'},
             collection: SnowReport::CATEGORIES %>
-            <%= render 'snow_guide' %>
-          </div>
-        </div>
-        <div class="modal-footer">
+            <div class="modal-footer">
           <%= f.submit 'Submit Snow Report' %>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       <% end %>
+            <%= render 'snow_guide' %>
+          </div>
+        </div>
+
     </div>
   </div>
 </div>

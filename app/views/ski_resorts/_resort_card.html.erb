@@ -1,4 +1,4 @@
-<div class="resort-card d-flex flex-column position-relative bg-white p-2 mx-2">
+<div class="resort-card d-flex flex-column position-relative">
   <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
   <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
   <div class="d-flex">
@@ -67,7 +67,5 @@
         <%= image_tag "ski_resort.jpg", class: "image" %>
       <% end %>
     </div>
-
-
   </div>
 </div>

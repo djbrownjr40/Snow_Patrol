@@ -7,6 +7,7 @@ class SkiResort < ApplicationRecord
   has_many :reviews, through: :check_ins
   has_many :snow_reports, through: :check_ins
   has_many :users, through: :check_ins
+  has_one_attached :photo
 
   validates :name, presence: true
   validates :location, presence: true

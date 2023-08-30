@@ -78,14 +78,14 @@ puts 'Creating now a new db!'
         food_rating: rand(0..5),
         location_rating: rand(0..5)
       }
-      )
-      review.check_in = check_in
-      review.save!
+    )
+    review.check_in = check_in
+    review.save!
 
-      snow_report = SnowReport.new({ rating: rand(0..5) })
-      snow_report.check_in = check_in
-      snow_report.save!
-    end
+    snow_report = SnowReport.new({ rating: rand(0..5) })
+    snow_report.check_in = check_in
+    snow_report.save!
+  end
   puts 'user made'
 end
 

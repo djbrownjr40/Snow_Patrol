@@ -110,10 +110,11 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 body  {
-    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+    // background-image: url('https://images.pexels.com/photos/17277447/pexels-photo-17277447/free-photo-of-night-skiing.jpeg');
+    background-image: url('https://images.pexels.com/photos/3784152/pexels-photo-3784152.jpeg');
   background-size:cover;
-        -webkit-animation: slidein 100s;
-        animation: slidein 100s;
+        -webkit-animation: slidein 80s;
+        animation: slidein 80s;
 
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
@@ -126,13 +127,13 @@ body  {
 }
 
 @-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
+from {background-position: top; background-size:800px; }
+to {background-position: -300px 0px;background-size:800px;}
 }
 
 @keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
+from {background-position: top;background-size:800px; }
+to {background-position: -300px 0px;background-size:800px;}
 }
 
 .center

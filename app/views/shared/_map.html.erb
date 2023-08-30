@@ -1,5 +1,5 @@
-<div style="width: 100vw; height: 100vh;"
-  data-map-target="map"
+<div style="<%=style%> "
+   data-map-target="map"
   <% unless current_page?(controller: 'ski_resorts', action: 'index')%>
     data-map-resort-info-value='true'
   <% end  %>

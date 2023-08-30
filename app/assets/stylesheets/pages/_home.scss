@@ -156,3 +156,9 @@ to {background-position: -300px 0px;background-size:800px;}
   font-family: 'Source Code Pro', monospace;
   text-transform:uppercase;
 }
+
+.checkin-container {
+  width: 100vw;
+  height: calc(100vh - 66px);
+  margin: 0;
+}

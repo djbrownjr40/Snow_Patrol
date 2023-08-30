@@ -4,26 +4,18 @@
     <%= render 'shared/map', style: "width: 100vw; height: 42vh;" %>
   </div>
   <div class='p-1 m-1 row row-cols-2' style='height: 42vh'>
-    <div class='col p-3'>
-      <div class='rounded-4 bg-dark'>
-        <%= render 'check_out_btn' %>
-      </div>
+    <div class='col p-2'>
+      <%= render 'check_out_btn' %>
     </div>
-    <div class='col p-3'>
-      <div class='rounded-4 bg-dark'>
-        <%= render 'review_btn' %>
-      </div>
+    <div class='col p-2'>
+      <%= render 'review_btn' %>
     </div>
-    <div class='col p-3'>
-      <div class='rounded-4 bg-dark'>
+    <div class='col p-2'>
+      <%= render 'snow_report_btn' %>
+    </div>
+    <div class='col p-2'>
+      <div class='w-100 h-100 bg-dark rounded-4'>
         <%= render 'snow_report_btn' %>
-      </div>
-      <%# <button type="button" class="btn btn-dark w-100 h-100 p-3 rounded-4" data-bs-toggle="modal" data-bs-target="#snowBackdrop">
-        Leave your Snow report ❄️
-      </button> %>
-    </div>
-    <div class='col p-3'>
-      <div class='rounded-4 bg-dark'>
       </div>
     </div>
   </div>

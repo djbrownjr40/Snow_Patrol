@@ -106,3 +106,9 @@ $current-stars: 10;
   animation-direction: alternate;
   background: linear-gradient(10deg, #a1d9b4 20%, #32988a 40%, #010619 70%);
 }
+
+.checkin-container {
+  width: 100vw;
+  height: calc(100vh - 66px);
+  margin: 0;
+}

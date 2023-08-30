@@ -9,7 +9,7 @@
   // class that conects cards to pins
   .card {
     flex: 0 0 100%;
-    height: 275px;
+    height: 250px;
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
   }
@@ -30,6 +30,10 @@
       padding-top: 10px;
     }
 
+    .info{
+      flex-grow: 1;
+    }
+
     .current-snow{
       background-color: #c4d2e784;
       border-radius: 5px;
@@ -39,6 +43,14 @@
       padding-bottom: 5px;
       margin-bottom: 15px;
       font-size: 17px;
+      justify-self: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dif{
+      font-size: smaller;
     }
   }
 
@@ -46,8 +58,8 @@
     object-fit: cover;
     width: 150px;
     height: 175px;
-    align-self: center;
     border-radius: 10px;
+    align-self: center;
   }
 }
 

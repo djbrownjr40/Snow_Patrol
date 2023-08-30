@@ -1,8 +1,8 @@
 <div class="resort-card d-flex flex-column position-relative bg-white p-2 mx-2">
   <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
   <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
-  <div class="d-flex flex-row justify-content-between">
-    <div class="info d-flex flex-column mx-2">
+  <div class="d-flex">
+    <div class="info mx-2">
       <div class="current-snow">
         <% if ski_resort.current_condition == 'no_snow' %>
           <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
@@ -26,14 +26,16 @@
           No reports yet today!
         <% end %>
       </div>
-      Difficulty of courses:
-      <ul class="list-unstyled">
+      <div class="courses d-flex flex-column">
+        Available courses:
+        <ul class="list-unstyled">
           <% ski_resort.courses.each do |course, number| %>
-            <li class="diff">
-              <%= course.to_s.capitalize %> <%= number %>
+            <li class="dif d-flex justify-content-between">
+              <div class="d-flex"><%= course.to_s.capitalize %></div><%= number %>
             </li>
           <% end %>
         </ul>
+      </div>
     </div>
     <div class="image">
       <%= image_tag "ski_resort.jpg", class: "image" %>

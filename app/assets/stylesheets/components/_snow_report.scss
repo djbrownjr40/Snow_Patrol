@@ -1,44 +1,222 @@
-body {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+// // body {
+// // 	height: 100vh;
+// // 	display: flex;
+// // 	align-items: center;
+// // 	justify-content: center;
+// // }
 
 // .snow-rate {
-// 	text-align: center;
-// 	width: 200px;
-// 	height: 200px;
-// 	// outline: thin solid lightgray;
+//   text-align: center;
+//   width: 200px;
+//   height: 200px;
 // }
+
 // .snow-emoji {
-// 	font-size: 120px;
-// 	height: 170px;
-// 	line-height: 170px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 720px;
+//   height: 170px;
+//   line-height: 170px;
 //   text-align: center;
 // }
 
-// input {
-// 	cursor: ew-resize;
+// .category-wrapper {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+//   input {
+//     // display: none;
+//   }
 // }
 
+// input {
+//   cursor: ew-resize;
+// }
 
-.snow-rate {
-  text-align: center;
-  width: 200px;
-  height: 200px;
+// .category-item {
+//   flex: 0 0 30%;
+// }
+
+// .category-item:hover {
+//   cursor: pointer;
+// }
+
+// // #clear {
+// //   background-color: red;
+// // }
+
+// // #clear:checked {
+// //   background-color: green;
+// // }
+
+// .category-selector {
+//   position: absolute;
+//   transform: scale(0);
+// }
+
+// label {
+//   border: 1px solid red;
+// }
+
+// .svg-radio-buttons + label {
+//   display: block;
+//   cursor: pointer;
+//   box-sizing: border-box;
+//   width: 100%;
+//   font-size: 12px;
+//   text-align: left;
+//   padding: 10px 10px 30px 10px;
+//   border: 1px solid #EAEAEA;
+//   border-radius: 4px;
+//   background-color: white;
+// }
+// // .category-selector + label {
+// //   display: block;
+// //   cursor: pointer;
+// //   box-sizing: border-box;
+// //   width: 100%;
+// //   font-size: 12px;
+// //   text-align: left;
+// //   padding: 10px 10px 30px 10px;
+// //   border: 1px solid #EAEAEA;
+// //   border-radius: 4px;
+// //   background-color: white;
+// // }
+
+// .svg-radio-buttons:checked {
+// //  outline: 1px solid red;
+// }
+
+// #snippet_category_ruby:checked + label {
+//   background-color: #FD1015;
+//   border-color: #FD1015;
+// }
+
+// .svg-radio-buttons:checked + label {
+//   background-color: red !important;
+// }
+
+// #clear:checked + label {
+//   background-color: #FD1015;
+//   border-color: #FD1015;
+// }
+
+// #slush:checked + label {
+//   background-color: #FFC65A;
+//   border-color: #FFC65A;
+// }
+
+// #icy:checked + label {
+//   background-color: blue ;
+//   border-color: blue;
+// }
+
+// #groomed:checked + label {
+//   background-color: orange;
+//   border-color: orange;
+// }
+
+// #packed:checked + label {
+//   background-color: brown;
+//   border-color: brown;
+// }
+
+// #powder:checked + label {
+//   background-color: pink;
+//   border-color: pink;
+// }
+
+label[for=snow_report_rating_no_snow]{
+  background-image: asset-url("clear.svg");
+
 }
 
-.snow-emoji {
+label[for=snow_report_rating_slushy]{
+  background-image: asset-url("slush.svg");
+}
+
+label[for=snow_report_rating_icy]{
+  background-image: asset-url("icy.svg");
+}
+
+label[for=snow_report_rating_packed_powder]{
+  background-image: asset-url("packed.svg");
+}
+
+label[for=snow_report_rating_pow]{
+  background-image: asset-url("powder.svg");
+}
+
+label[for=snow_report_rating_groomed_snow]{
+  background-image: asset-url("groomed.svg");
+}
+
+
+.category-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 720px;
-  height: 170px;
-  line-height: 170px;
-  text-align: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  label {
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
 }
 
-input {
-  cursor: ew-resize;
+.category-item {
+  flex: 0 0 30%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  // background-color: white;
+}
+
+.category-selector:checked + label {
+  color: red !important;
+  background-color: green;
+}
+
+
+#snippet_category_ruby + label {
+  color: #FD1015;
+}
+
+#snippet_category_ruby:checked + label {
+  background-color: #FD1015;
+  border-color: #FD1015;
+}
+
+
+#snippet_category_javascript + label {
+  color: #FFC65A;
+}
+
+#snippet_category_javascript:checked + label {
+  background-color: #FFC65A;
+  border-color: #FFC65A;
+}
+
+
+#snippet_category_css + label {
+  color: #62DDF5;
+}
+
+#snippet_category_css:checked + label {
+  background-color: #62DDF5;
+  border-color: #62DDF5;
 }

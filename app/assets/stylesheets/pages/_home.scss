@@ -109,7 +109,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
-body  {
+.home-container  {
+  width: 100vw;
+  height: calc(100vh - 66px);
+  overflow: hidden;
+  position: relative;
     background-image: url('https://images.pexels.com/photos/17277447/pexels-photo-17277447/free-photo-of-night-skiing.jpeg');
     // background-image: url('https://images.pexels.com/photos/3784152/pexels-photo-3784152.jpeg');
   background-size:cover;
@@ -157,7 +161,7 @@ to {background-position: -300px 0px;background-size:800px;}
   text-transform:uppercase;
 }
 
-.checkin-container {
+.checkin-background {
   width: 100vw;
   height: calc(100vh - 66px);
   margin: 0;

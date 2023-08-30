@@ -3,12 +3,39 @@
   <%# C: renders a show with a "check-out at X and check-in here button" %>
 <% else %>
   <div class="ski-resort-info bg-primary px-4 py-3 ">
-    <p class="snow-report p-1 bg-success text-center">Right now we have pow snow!! </p>
+    <p class="snow-report p-1 bg-warning text-center">Current snow report:
+      <%# <div class="current-snow my-2"> %>
+      <% if @ski_resort.current_condition == 'no_snow' %>
+        <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
+        <span class="condition-text">NO SNOW!</span>
+      <% elsif @ski_resort.current_condition == 'slushy' %>
+        <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small slush", width: 50, height: 50 %>
+        <span class="condition-text">SLUSHY!</span>
+      <% elsif @ski_resort.current_condition == 'icy' %>
+        <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small icy", width: 50, height: 50 %>
+        <span class="condition-text">ICY!</span>
+      <% elsif @ski_resort.current_condition == 'groomed_snow' %>
+        <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small groomed", width: 50, height: 50 %>
+        <span class="condition-text">GROOMED!</span>
+      <% elsif @ski_resort.current_condition == 'packed_powder' %>
+        <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small packed", width: 50, height: 50 %>
+        <span class="condition-text">PACKED!</span>
+      <% elsif @ski_resort.current_condition == 'pow' %>
+        <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small pow", width: 50, height: 50 %>
+        <span class="condition-text">POW!</span>
+      <% else %>
+        No reports yet today!
+      <% end %>
+      <%# </div> %>
+    </p>
     <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>
     <%= render "ski_resorts/check_in_btn" %>
     <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
     <div style="background-color: ghostwhite;">
       <%= render "ski_resorts/snow_graph" %>
+    </div>
+    <div class="back-btn">
+      <%= render "ski_resorts/back_btn" %>
     </div>
   </div>
 <% end %>

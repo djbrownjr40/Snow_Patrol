@@ -3,12 +3,13 @@
   display: flex;
   list-style: none;
   overflow-x: scroll;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
 
   // class that conects cards to pins
   .card {
     flex: 0 0 100%;
-    height: 275px;
+    height: 250px;
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
   }
@@ -24,20 +25,62 @@
     width: 375px;
     border-color: rgb(91, 91, 91);
 
+    .resort-name{
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    .info{
+      flex-grow: 1;
+    }
+
     .current-snow{
-      background-color: #c4d2e784;
       border-radius: 5px;
-      padding-left: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
       font-size: 17px;
+      justify-self: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nosnow{
+      background-color: rgba(139, 69, 19, .5);
+    }
+    .slush{
+      background-color: rgba(128, 128, 128, .5);
+    }
+    .icy{
+      background-color: rgba(112, 128, 144, .5);
+    }
+    .groomed{
+      background-color: rgba(176, 223, 230, .5);
+    }
+    .packed{
+      background-color: rgba(192, 192, 192, .5);
+    }
+    .pow{
+      background-color: rgba(176, 196, 222, .5);
+    }
+    .no-report{
+      background-color: rgba(179, 180, 181, 0.5);
+    }
+
+    .dif{
+      font-size: smaller;
     }
   }
 
   .resort-card .image {
     object-fit: cover;
-    width: 180px;
-    height: 225px;
-    align-self: center;
+    width: 150px;
+    height: 175px;
     border-radius: 10px;
+    align-self: center;
   }
 }
 

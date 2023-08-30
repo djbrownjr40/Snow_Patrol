@@ -3,6 +3,7 @@
   display: flex;
   list-style: none;
   overflow-x: scroll;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
 
   // class that conects cards to pins
@@ -24,19 +25,27 @@
     width: 375px;
     border-color: rgb(91, 91, 91);
 
+    .resort-name{
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
     .current-snow{
       background-color: #c4d2e784;
       border-radius: 5px;
-      padding-left: 6px;
-      padding-right: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
       font-size: 17px;
     }
   }
 
   .resort-card .image {
     object-fit: cover;
-    width: 180px;
-    height: 225px;
+    width: 150px;
+    height: 175px;
     align-self: center;
     border-radius: 10px;
   }

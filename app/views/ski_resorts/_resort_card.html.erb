@@ -1,37 +1,42 @@
-<div class="resort-card d-flex flex-row position-relative bg-white justify-content-between p-2 mx-2">
+<div class="resort-card d-flex flex-column position-relative bg-white p-2 mx-2">
   <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
-  <div class="info d-flex flex-column my-3 mx-2">
-    <h4><strong><%= ski_resort.name %></strong></h4>
-    <div class="current-snow my-2">
-      <% if ski_resort.current_condition == 'no_snow' %>
-        <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
-        <span class="condition-text">NO SNOW!</span>
-      <% elsif ski_resort.current_condition == 'slushy' %>
-        <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small slush", width: 50, height: 50 %>
-        <span class="condition-text">SLUSHY!</span>
-      <% elsif ski_resort.current_condition == 'icy' %>
-        <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small icy", width: 50, height: 50 %>
-        <span class="condition-text">ICY!</span>
-      <% elsif ski_resort.current_condition == 'groomed_snow' %>
-        <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small groomed", width: 50, height: 50 %>
-        <span class="condition-text">GROOMED!</span>
-      <% elsif ski_resort.current_condition == 'packed_powder' %>
-        <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small packed", width: 50, height: 50 %>
-        <span class="condition-text">PACKED!</span>
-      <% elsif ski_resort.current_condition == 'pow' %>
-        <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small pow", width: 50, height: 50 %>
-        <span class="condition-text">POW!</span>
-      <% else %>
-        No reports yet today!
-      <% end %>
+  <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
+  <div class="d-flex flex-row justify-content-between">
+    <div class="info d-flex flex-column mx-2">
+      <div class="current-snow">
+        <% if ski_resort.current_condition == 'no_snow' %>
+          <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
+          <span class="condition-text">NO SNOW!</span>
+        <% elsif ski_resort.current_condition == 'slushy' %>
+          <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small slush", width: 50, height: 50 %>
+          <span class="condition-text">SLUSHY!</span>
+        <% elsif ski_resort.current_condition == 'icy' %>
+          <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small icy", width: 50, height: 50 %>
+          <span class="condition-text">ICY!</span>
+        <% elsif ski_resort.current_condition == 'groomed_snow' %>
+          <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small groomed", width: 50, height: 50 %>
+          <span class="condition-text">GROOMED!</span>
+        <% elsif ski_resort.current_condition == 'packed_powder' %>
+          <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small packed", width: 50, height: 50 %>
+          <span class="condition-text">PACKED!</span>
+        <% elsif ski_resort.current_condition == 'pow' %>
+          <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small pow", width: 50, height: 50 %>
+          <span class="condition-text">POW!</span>
+        <% else %>
+          No reports yet today!
+        <% end %>
+      </div>
+      Difficulty of courses:
+      <ul class="list-unstyled">
+          <% ski_resort.courses.each do |course, number| %>
+            <li class="diff">
+              <%= course.to_s.capitalize %> <%= number %>
+            </li>
+          <% end %>
+        </ul>
     </div>
-    Difficulty of courses:
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-  <div class="image">
-    <%= image_tag "ski_resort.jpg", class: "image" %>
+    <div class="image">
+      <%= image_tag "ski_resort.jpg", class: "image" %>
+    </div>
   </div>
 </div>

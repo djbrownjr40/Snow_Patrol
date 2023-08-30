@@ -13,7 +13,7 @@ class SnowReportsController < ApplicationController
     @snow_report = @check_in.snow_reports.build(snow_report_params)
 
     if @snow_report.save
-      redirect_to ski_resort_path(@ski_resort), notice: 'Your review have submitted successfully! 🤙'
+      redirect_to ski_resort_path(@ski_resort), notice: 'Your review was submitted successfully! 🤙'
     else
       render 'new'
     end

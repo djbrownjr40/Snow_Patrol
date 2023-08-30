@@ -46,11 +46,14 @@
           <% ski_resort.courses.each do |course, number| %>
             <li class="dif d-flex justify-content-between">
               <% if course.to_s == "easy" %>
-                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square" style="color: #5bde4a;"></i> <%= course.to_s.capitalize %></div><%= number %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square" style="color: #5bde4a;"></i> <%= course.to_s.capitalize %></div>
+                <%= number %>
               <% elsif course.to_s == "intermediate" %>
-                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square-full" style="color: #70d2eb;"></i> <%= course.to_s.capitalize %></div><%= number %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square-full" style="color: #70d2eb;"></i> <%= course.to_s.capitalize %></div>
+                <%= number %>
               <% elsif course.to_s == "advanced" %>
-                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-diamond" style="color: #434343;"></i> <%= course.to_s.capitalize %></div><%= number %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-diamond" style="color: #434343;"></i> <%= course.to_s.capitalize %></div>
+                <%= number %>
               <% end %>
             </li>
           <% end %>
@@ -58,9 +61,11 @@
       </div>
     </div>
     <div class="image">
-      <%= image_tag "ski_resort.jpg", class: "image" %>
+      <% if ski_resort.photo.attached? %>
+        <%= cl_image_tag ski_resort.photo.key, class: "image" %>
+      <% else %>
+        <%= image_tag "ski_resort.jpg", class: "image" %>
+      <% end %>
     </div>
-  <div class="image">
-    <%= cl_image_tag photo.key, class: "image" %>
   </div>
 </div>

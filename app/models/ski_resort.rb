@@ -1,5 +1,6 @@
 class SkiResort < ApplicationRecord
   serialize :features, Hash
+  serialize :courses, Hash
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
@@ -7,6 +8,7 @@ class SkiResort < ApplicationRecord
   has_many :reviews, through: :check_ins
   has_many :snow_reports, through: :check_ins
   has_many :users, through: :check_ins
+  has_one_attached :photo
 
   validates :name, presence: true
   validates :location, presence: true
@@ -40,8 +42,13 @@ class SkiResort < ApplicationRecord
 
   def current_condition
     reports = snow_reports.where("DATE(snow_reports.created_at) = ?", Date.today)
-    return unless reports.present?
+    return "no_report" unless reports.present?
 
     reports.group(:rating).count.max_by { |condition, count| count }[0]
+  end
+
+  def current_condition_number
+    conditions = %w[no_report no_snow slushy icy groomed_snow packed_powder pow]
+    conditions.index(current_condition)
   end
 end

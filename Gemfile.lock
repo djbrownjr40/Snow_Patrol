@@ -307,6 +307,7 @@ DEPENDENCIES
   groupdate (~> 6.3)
   importmap-rails
   jbuilder
+  nokogiri
   pg (~> 1.1)
   pg_search
   puma (~> 5.0)

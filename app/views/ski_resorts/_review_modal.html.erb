@@ -2,27 +2,39 @@
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Rate your review here!</h1>
+      <div class="modal-header primary">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Slide and rate your review here!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-rate-body">
+      <div class="modal-rate-body grid" >
         <%= simple_form_for([check_in, review], remote: true, html: {class: "review-form"}) do |form| %>
-          <div class="rate" data-controller="rating">
-            <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+          <div class="row">
+            <div class="col-6">
+              <div class="rate" data-controller="rating">
+                <div class="emoji" data-rating-target="emoji">😑</div>
+                <%= form.input :lift_wait_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="rate" data-controller="rating">
+                <div class="emoji" data-rating-target="emoji">😑</div>
+                <%= form.input :price_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+              </div>
+            </div>
           </div>
-          <div class="rate" data-controller="rating">
-            <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :price_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
-          </div>
-          <div class="rate" data-controller="rating">
-            <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :crowd_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
-          </div>
-          <div class="rate" data-controller="rating">
-            <div class="emoji" data-rating-target="emoji">😑</div>
-            <%= form.input :food_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+          <div class="row">
+            <div class="col-6">
+              <div class="rate" data-controller="rating">
+                <div class="emoji" data-rating-target="emoji">😑</div>
+                <%= form.input :crowd_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="rate" data-controller="rating">
+                <div class="emoji" data-rating-target="emoji">😑</div>
+                <%= form.input :food_rating, as: :range,  input_html: {data: {action: "change->rating#changeEmoji"}, min:"1", max:"5", step:"1"}, class:"form-range" %>
+              </div>
+            </div>
           </div>
           <div class="rate" data-controller="rating">
             <div class="emoji" data-rating-target="emoji">😑</div>
@@ -30,7 +42,7 @@
           </div>
           <div class="modal-footer">
             <%= form.submit 'Submit Your Review' %>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
           </div>
         <% end %>
       </div>

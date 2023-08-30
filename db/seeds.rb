@@ -2,6 +2,9 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 require 'faker'
 require 'csv'
+require 'open-uri'
+require 'json'
+require 'net/http'
 
 # SEED ONCE WITH THE RESORTS UNCOMENTED AND THEN COMMENT THEM OUT
 # there's no point on destroying and recreating them cause they're going to stay the same
@@ -12,7 +15,8 @@ puts 'Detroying all previous ski reports...'
 SkiResort.destroy_all
 
 CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |row|
-  SkiResort.create!(
+  puts 'creating ski resort'
+  ski_resort = SkiResort.create!(
     {
       name: row[:resort_name],
       location: "#{row[:town]}, #{row[:prefecture]}",
@@ -31,11 +35,47 @@ CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |ro
         shower_room: [true, false].sample,
         english_friendly: [true, false].sample,
         kids_friendly:[true, false].sample
+      },
+      courses: {
+        easy: rand(0..4),
+        intermediate: rand(0..4),
+        advanced: rand(0..4)
       }
     }
   )
+  dashed_name = ski_resort.name.gsub(" ", "-")
+  url = "https://www.snowjapan.com/rest-api/skiarea/#{dashed_name}"
+  uri = URI(url)
+  body = {}
+  headers = {"accept": "application/json, text/plain, */*", "accept-language": "en-US,en;q=0.5"}
+  response = Net::HTTP.post(uri, body.to_json, headers)
+  resort = JSON.parse(response.body)
+  id = resort['Id']
+
+  photo_url = "https://www.snowjapan.com/rest-api/skiarea/photos/1"
+  photo_uri = URI(photo_url)
+  photo_body = {"resortid": id}
+  photo_headers = {
+    "accept": "application/json, text/plain, */*",
+    "content-type": "application/json;charset=UTF-8"
+  }
+  photo_response = Net::HTTP.post(photo_uri, photo_body.to_json, photo_headers)
+  parsed_photos = JSON.parse(photo_response.body)
+  p parsed_photos[0]
+  parsed_photo = parsed_photos[0]
+  if parsed_photo
+
+    parsed_photo = parsed_photos[0]
+    parsed_photo_name = parsed_photo["PhotoFileName"].gsub(' ', '%20')
+    parsed_photo_user = parsed_photo["CreatedByUserName"].gsub(' ', '%20')
+
+    photo_file_url = "https://www.snowjapan.com/photo-galleries/#{parsed_photo_user}/#{parsed_photo_name}"
+    photo_file = URI.open(photo_file_url)
+
+    ski_resort.photo.attach(io: photo_file, filename: "resort.png", content_type: "image/png")
+  end
 end
-puts 'skii resorts made'
+puts 'ski resorts made'
 
 puts 'Detroying all previous users...'
 User.destroy_all
@@ -78,14 +118,14 @@ puts 'Creating now a new db!'
         food_rating: rand(0..5),
         location_rating: rand(0..5)
       }
-      )
-      review.check_in = check_in
-      review.save!
+    )
+    review.check_in = check_in
+    review.save!
 
-      snow_report = SnowReport.new({ rating: rand(0..5) })
-      snow_report.check_in = check_in
-      snow_report.save!
-    end
+    snow_report = SnowReport.new({ rating: rand(0..5) })
+    snow_report.check_in = check_in
+    snow_report.save!
+  end
   puts 'user made'
 end
 

@@ -108,7 +108,11 @@ export default class extends Controller {
   updateMarkerColors(event) {
     console.log(event);
     const visibleCard = this.#findVisibleCard(event.target)
+    if (!visibleCard) {
+      return
+    }
     const skiResortId = visibleCard.getAttribute("data-ski-resort-id");
+    const skiResortCoordinates = JSON.parse(visibleCard.getAttribute("data-ski-resort-coordinates"));
     console.log(visibleCard);
     console.log(skiResortId);
 
@@ -122,11 +126,17 @@ export default class extends Controller {
 
       if (marker.dataset.skiResortId === skiResortId) {
         // Change marker color for the visible card
-        marker.innerHTML = "<i class='fa-regular fa-snowflake' style='color: #ff8298;'></i>";
+        marker.firstElementChild.style.color = "#ff8298";
       } else {
         // Reset color for other markers
-        marker.innerHTML = "<i class='fa-regular fa-snowflake' style='color: #073763;'></i>";
+        marker.firstElementChild.style.color = "#073763";
       }
+    });
+
+    this.map.flyTo({
+      center:skiResortCoordinates,
+      zoom: 8,
+      speed: 0.4,
     });
   }
 

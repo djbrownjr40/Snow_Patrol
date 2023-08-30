@@ -23,6 +23,13 @@
     transition: all 0.2s;
     width: 375px;
     border-color: rgb(91, 91, 91);
+
+    .current-snow{
+      background-color: #c4d2e784;
+      border-radius: 5px;
+      padding-left: 6px;
+      font-size: 17px;
+    }
   }
 
   .resort-card .image {

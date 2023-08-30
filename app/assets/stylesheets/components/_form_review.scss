@@ -3,17 +3,19 @@
 	// text-align: center;
 	width: 120px;
 	// height: 200px;
-	// outline: thin solid light;
+	outline: thin solid light;
 
 }
 
 .emoji {
-	font-size: 120px;
-	height: 170px;
-	line-height: 170px;
-
+	font-size: 100px;
+  background: transparent;
+  text-align: center;
+	// height: 140px;
+	// line-height: 140px;
 }
 
 input {
 	cursor: ew-resize;
+  accent-color: blue;
 }

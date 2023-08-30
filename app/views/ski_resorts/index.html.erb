@@ -1,14 +1,14 @@
 <div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
      data-map-markers-value="<%= @markers.to_json %>">
-  <ul data-search-target="cards" class="cards fixed-bottom" data-action="scroll->map#updateMarkerColors">
+  <ul data-search-target="cards" class="cards" data-action="scroll->map#updateMarkerColors">
     <% @ski_resorts.each do |ski_resort| %>
-      <li class="card bg-white p-2 mx-2" data-ski-resort-id="<%= ski_resort.id %>" data-ski-resort-coordinates="<%= [ski_resort.longitude, ski_resort.latitude] %>">
+      <li class="show-card bg-white" data-ski-resort-id="<%= ski_resort.id %>" data-ski-resort-coordinates="<%= [ski_resort.longitude, ski_resort.latitude] %>">
         <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>
       </li>
     <% end %>
   </ul>
-  <div style='position: relative;'>
+  <div>
     <%= render "ski_resorts/search_bar" %>
-    <%= render "shared/map", style: "width: 100vw; height: 100vh;" %>
+    <%= render "shared/map", style: "width: 100vw; height: 100vh; z-index: -1" %>
   </div>
 </div>

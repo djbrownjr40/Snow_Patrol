@@ -1,4 +1,5 @@
 // style the whole ul to make it able to scroll horizontally
+
 .cards {
   display: flex;
   list-style: none;
@@ -7,8 +8,7 @@
   scroll-snap-type: x mandatory;
 
   // class that conects cards to pins
-  .card {
-    flex: 0 0 100%;
+  .show-card {
     height: 250px;
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
@@ -17,36 +17,37 @@
   // style each li
   .resort-card {
     display: flex;
-    flex-direction: column;
-    flex: 0 0 100%;
     border-radius: 12px;
     scroll-snap-align: start;
     transition: all 0.2s;
-    width: 375px;
     border-color: rgb(91, 91, 91);
+    padding: 10pt;
+    margin: 10pt;
+    width: 50vw;
+
 
     .resort-name{
       padding-left: 10px;
       padding-top: 10px;
     }
 
-    .info{
-      flex-grow: 1;
-    }
+    // .info{
+    //   flex-grow: 1;
+    // }
 
-    .current-snow{
-      border-radius: 5px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      font-size: 17px;
-      justify-self: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    // .current-snow{
+    //   border-radius: 5px;
+    //   padding-left: 10px;
+    //   padding-right: 10px;
+    //   padding-top: 5px;
+    //   padding-bottom: 5px;
+    //   margin-bottom: 15px;
+    //   font-size: 17px;
+    //   justify-self: center;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    // }
 
     .nosnow{
       background-color: rgba(116, 50, 13, 0.5);

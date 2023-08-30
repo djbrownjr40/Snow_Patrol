@@ -1,31 +1,40 @@
 // style the whole ul to make it able to scroll horizontally
-
-.cards {
+.outer-cards-container {
   position: sticky;
   bottom: 0;
+  // don't forget to delete padding once JS code is written!
+  padding-left: 20px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.cards {
   display: flex;
   list-style: none;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
 
+
   // class that conects cards to pins
   .show-card {
     height: 250px;
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
+    margin: 10px;
+    border-radius: 12px;
   }
 
   // style each li
   .resort-card {
     display: flex;
-    border-radius: 12px;
     scroll-snap-align: start;
     transition: all 0.2s;
     border-color: rgb(91, 91, 91);
     padding: 10pt;
-    margin: 10pt;
-    width: 50vw;
+    width: 320px;
 
 
     .resort-name{

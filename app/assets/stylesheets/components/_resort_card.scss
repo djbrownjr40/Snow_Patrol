@@ -1,6 +1,8 @@
 // style the whole ul to make it able to scroll horizontally
 
 .cards {
+  position: sticky;
+  bottom: 0;
   display: flex;
   list-style: none;
   overflow-x: scroll;

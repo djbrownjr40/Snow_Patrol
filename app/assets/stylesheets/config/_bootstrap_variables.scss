@@ -54,3 +54,4 @@ $theme-colors: (
 
   $form-range-thumb-bg: $pink;
   $form-range-track-bg: $dark-blue;
+  $form-range-thumb-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;

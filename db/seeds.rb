@@ -35,8 +35,7 @@ CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |ro
       courses: {
         easy: rand(0..4),
         intermediate: rand(0..4),
-        advanced: rand(0..4),
-        expert: rand(0..4)
+        advanced: rand(0..4)
       }
     }
   )

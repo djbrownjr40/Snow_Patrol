@@ -35,7 +35,6 @@
     }
 
     .current-snow{
-      background-color: #c4d2e784;
       border-radius: 5px;
       padding-left: 10px;
       padding-right: 10px;
@@ -47,6 +46,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    .nosnow{
+      background-color: rgba(139, 69, 19, .5);
+    }
+    .slush{
+      background-color: rgba(128, 128, 128, .5);
+    }
+    .icy{
+      background-color: rgba(112, 128, 144, .5);
+    }
+    .groomed{
+      background-color: rgba(176, 223, 230, .5);
+    }
+    .packed{
+      background-color: rgba(192, 192, 192, .5);
+    }
+    .pow{
+      background-color: rgba(176, 196, 222, .5);
+    }
+    .no-report{
+      background-color: rgba(179, 180, 181, 0.5);
     }
 
     .dif{

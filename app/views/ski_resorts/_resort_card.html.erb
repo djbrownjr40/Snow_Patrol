@@ -3,27 +3,41 @@
   <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
   <div class="d-flex">
     <div class="info mx-2">
-      <div class="current-snow">
+      <div>
         <% if ski_resort.current_condition == 'no_snow' %>
-          <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
-          <span class="condition-text">NO SNOW!</span>
+          <div class="current-snow nosnow">
+            <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small", width: 50, height: 50 %>
+            <span class="condition-text">NO SNOW!</span>
+          </div>
         <% elsif ski_resort.current_condition == 'slushy' %>
-          <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small slush", width: 50, height: 50 %>
-          <span class="condition-text">SLUSHY!</span>
+          <div class="current-snow slush">
+            <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small", width: 50, height: 50 %>
+            <span class="condition-text">SLUSHY!</span>
+          </div>
         <% elsif ski_resort.current_condition == 'icy' %>
-          <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small icy", width: 50, height: 50 %>
-          <span class="condition-text">ICY!</span>
+          <div class="current-snow icy">
+            <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small", width: 50, height: 50 %>
+            <span class="condition-text">ICY!</span>
+          </div>
         <% elsif ski_resort.current_condition == 'groomed_snow' %>
-          <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small groomed", width: 50, height: 50 %>
-          <span class="condition-text">GROOMED!</span>
+          <div class="current-snow groomed">
+            <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small", width: 50, height: 50 %>
+            <span class="condition-text">GROOMED!</span>
+          </div>
         <% elsif ski_resort.current_condition == 'packed_powder' %>
-          <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small packed", width: 50, height: 50 %>
-          <span class="condition-text">PACKED!</span>
+          <div class="current-snow packed">
+            <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small", width: 50, height: 50 %>
+            <span class="condition-text">PACKED!</span>
+          </div>
         <% elsif ski_resort.current_condition == 'pow' %>
-          <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small pow", width: 50, height: 50 %>
-          <span class="condition-text">POW!</span>
+          <div class="current-snow pow">
+            <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small", width: 50, height: 50 %>
+            <span class="condition-text">POW!</span>
+          </div>
         <% else %>
-          No reports yet today!
+          <div class="current-snow no-report">
+            No reports yet today!
+          </div>
         <% end %>
       </div>
       <div class="courses d-flex flex-column">
@@ -31,7 +45,13 @@
         <ul class="list-unstyled">
           <% ski_resort.courses.each do |course, number| %>
             <li class="dif d-flex justify-content-between">
-              <div class="d-flex"><%= course.to_s.capitalize %></div><%= number %>
+              <% if course.to_s == "easy" %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square" style="color: #5bde4a;"></i> <%= course.to_s.capitalize %></div><%= number %>
+              <% elsif course.to_s == "intermediate" %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square-full" style="color: #70d2eb;"></i> <%= course.to_s.capitalize %></div><%= number %>
+              <% elsif course.to_s == "advanced" %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-diamond" style="color: #434343;"></i> <%= course.to_s.capitalize %></div><%= number %>
+              <% end %>
             </li>
           <% end %>
         </ul>

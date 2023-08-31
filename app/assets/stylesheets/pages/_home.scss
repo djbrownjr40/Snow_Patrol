@@ -129,6 +129,14 @@
 
         -webkit-animation-direction: alternate;
         animation-direction: alternate;
+  h1 {
+    font-family: $home-font;
+    font-size: 40pt;
+  }
+
+  h5 {
+    font-family: $home-font;
+  }
 }
 
 @-webkit-keyframes slidein {

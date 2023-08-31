@@ -126,10 +126,10 @@ export default class extends Controller {
 
       if (marker.dataset.skiResortId === skiResortId) {
         // Change marker color for the visible card
-        marker.firstElementChild.style.color = "#ff8298";
+        marker.style = " background-color: rgba(255, 130, 153, 0.3); border-radius: 50%;";
       } else {
         // Reset color for other markers
-        marker.firstElementChild.style.color = "#073763";
+        marker.style = " background-color: rgba(255, 130, 153, 0);";
       }
     });
 

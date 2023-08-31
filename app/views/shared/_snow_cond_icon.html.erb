@@ -1,0 +1,16 @@
+
+<% if ski_resort.current_condition == 'no_snow' %>
+<%=   image_tag 'clear.svg', alt: 'No snow', class: 'svg-icon-small nosnow', width: size, height: size %>
+<% elsif ski_resort.current_condition == 'slushy' %>
+ <%= image_tag 'slush.svg', alt: 'No snow', class: 'svg-icon-small nosnow', width: size, height: size %>
+<% elsif ski_resort.current_condition == 'icy' %>
+<%=   image_tag 'icy.svg', alt: 'No snow', class: 'svg-icon-small nosnow', width: size, height: size %>
+<% elsif ski_resort.current_condition == 'groomed_snow' %>
+<%=   image_tag 'groomed.svg', alt: 'No snow', class: 'svg-icon-small nosnow', width: size, height: size %>
+<% elsif ski_resort.current_condition == 'packed_powder' %>
+<%=   image_tag 'packed.svg', alt: 'No snow', class: 'svg-icon-small nosnow', width: size, height: size %>
+<% elsif ski_resort.current_condition == 'pow' %>
+<%=   image_tag 'powder.svg', alt: 'No snow', class: 'svg-icon-small nosnow', width: size, height: size %>
+<% else %>
+  <i class="fa-solid fa-circle-dot" style="color: #2d5c9e; font-size: <%= size %>"></i>
+<% end %>

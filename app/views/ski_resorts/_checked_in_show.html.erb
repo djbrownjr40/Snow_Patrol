@@ -1,24 +1,23 @@
-<div class='checkin-background bg-primary'>
+<div class='checked-background-color'>
   <div data-controller='map' data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
      data-map-markers-value="<%= @markers.to_json %>">
     <%= render 'shared/map', style: "width: 100vw; height: 42vh;" %>
   </div>
-  <div class='p-1 m-1 row row-cols-2' style='height: 42vh'>
+  <div>
+    <h1 class="text-center m-3 p-1 text-dark"><strong> <%= @ski_resort.name %></strong></h1>
+  </div>
+  <div class='p-1 m-1 row row-cols-2' style='height: 30vh'>
     <div class='col p-2'>
       <%= render 'review_btn' %>
     </div>
     <div class='col p-2'>
       <%= render 'snow_report_btn' %>
     </div>
-    <div class='col p-2'>
-      <%= render 'check_out_btn' %>
-    </div>
-    <div class='col p-2'>
-      <div class='w-100 h-100 bg-danger rounded-4' style='position: relative'>
-        <p style='text-align: center;'><strong>Emergency Dial</strong></p>
-      </div>
-    </div>
   </div>
+</div>
+<div class='d-flex justify-content-center'>
+  <%= render 'check_out_btn' %>
+</div>
 </div>
 <%= render 'review_modal', review: @review, check_in: current_user.active_check_in %>
 <%= render 'snow_report_modal', ski_resort: current_user.active_check_in.ski_resort, snow_report: @snow_report %>

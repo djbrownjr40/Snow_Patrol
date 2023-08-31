@@ -88,7 +88,7 @@ export default class extends Controller {
 }
 
   #findVisibleCard(cardsContainer) {
-    const cards = cardsContainer.querySelectorAll(".card");
+    const cards = cardsContainer.querySelectorAll(".show-card");
     const containerRect = cardsContainer.getBoundingClientRect();
 
     for (const card of cards) {

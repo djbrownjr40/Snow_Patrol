@@ -1,9 +1,7 @@
-<div data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+<div class='index-container' data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
      data-map-markers-value="<%= @markers.to_json %>">
-  <div>
-    <%= render "ski_resorts/search_bar" %>
-    <%= render "shared/map", style: "width: 100vw; height: 100vh; z-index: -1" %>
-  </div>
+  <%= render "ski_resorts/search_bar" %>
+  <%= render "shared/map", style: "width: 100vw; height: 100%;" %>
   <div class='outer-cards-container'>
     <ul data-search-target="cards" class="cards" data-action="scroll->map#updateMarkerColors">
       <% @ski_resorts.each do |ski_resort| %>

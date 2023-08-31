@@ -2,13 +2,8 @@
 .outer-cards-container {
   position: sticky;
   bottom: 0;
-  // don't forget to delete padding once JS code is written!
-  padding-left: 20px;
 }
 
-ul {
-  padding-left: 0;
-}
 
 .cards {
   display: flex;
@@ -29,10 +24,10 @@ ul {
 
   // style each li
   .resort-card {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     transition: all 0.2s;
     border-color: rgb(91, 91, 91);
-    padding: 10pt;
+    padding: 7pt;
     width: 320px;
 
 
@@ -53,7 +48,7 @@ ul {
       padding-right: 10px;
       padding-top: 5px;
       padding-bottom: 5px;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       font-size: 17px;
       display: flex;
       justify-content: flex-start;

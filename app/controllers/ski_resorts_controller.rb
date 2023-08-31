@@ -37,6 +37,5 @@ class SkiResortsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {ski_resort: @ski_resort})
       }]
     @snow_ratings = @ski_resort.snow_reports.group_by_hour(:created_at).average(:rating)
-
   end
 end

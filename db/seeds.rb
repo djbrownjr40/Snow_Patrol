@@ -77,16 +77,11 @@ require 'net/http'
 # end
 # puts 'ski resorts made'
 
-# puts 'Detroying all previous users...'
-# User.destroy_all
-# puts 'Detroying all previous check_ins...'
-# CheckIn.destroy_all
-# puts 'Detroying all previous reviews...'
-# Review.destroy_all
-# puts 'Detroying all previous snow reports...'
-# SnowReport.destroy_all
+puts 'Detroying all previous users...'
+User.destroy_all
 
-# puts 'Creating now a new db!'
+puts 'Creating now a new db!'
+user_no = 0
 
 # creating 10 users, each of them has been to 5 resorts, left 1 review and 1 snow report
 # none of them have a default resort assigned
@@ -124,10 +119,12 @@ require 'net/http'
 
     snow_report = SnowReport.new({ rating: rand(1..5) })
     snow_report.check_in = check_in
+    snow_report.created_at = Faker::Time.between_dates(from: Date.today, to: Date.today, period: :day)
     snow_report.save!
   end
+  user_no += 1
+  puts "user#{user_no} made"
 end
-puts 'user made'
 
 
 # assigning a resort as default to the first user, no review or snow report for this default resort yet
@@ -135,7 +132,6 @@ check_in_default = CheckIn.new({ checked_out_at: nil })
 check_in_default.user = User.first
 check_in_default.ski_resort = SkiResort.all.sample
 check_in_default.save!
-puts 'gave 1st user a default'
 
-
+puts SkiResort.first.inspect
 puts 'Done! :)'

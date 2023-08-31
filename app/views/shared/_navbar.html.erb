@@ -1,50 +1,38 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="nav-bar d-flex">
+  <div class="search">
+    <%= link_to ski_resorts_path, class: "nav-link" do %>
+      <i class="fa-solid fa-magnifying-glass" style="color: #2d5c9e;"></i>
+    <% end %>
+  </div>
+  <div class="home">
     <% if user_signed_in? && current_user.check_ins.last && current_user.check_ins&.last.checked_out_at.nil? %>
       <%= link_to ski_resort_path(current_user.check_ins.last.ski_resort), class: "navbar-brand" do %>
-        <%= image_tag "sp_logo.png" %>
+        <i class="fa-solid fa-house"style="color: #2d5c9e;"></i>
       <% end %>
     <% else %>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "sp_logo.png" %>
+         <i class="fa-solid fa-house"style="color: #2d5c9e;"></i>
       <% end %>
     <% end %>
-    <%# <h1 class="fw-light m-0">Snow Patrol</h1> %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <% if user_signed_in? && current_user.check_ins.last && current_user.check_ins&.last.checked_out_at.nil? %>
-              <%= link_to "My Ski Resort", ski_resort_path(current_user.check_ins.last.ski_resort), class: "nav-link" %>
-            <% else %>
-              <%= link_to "Home", root_path, class: "nav-link" %>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Search", ski_resorts_path, class: "nav-link" %>
-          </li>
-          <!-- <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li> -->
-          <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "user_profile.png", class: "avatar", alt: "dropdown menu" %>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+  </div>
+  <div class="profile">
+    <% if user_signed_in? %>
+      <div class="nav-item dropdown">
+        <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa-solid fa-user" style="color: #2d5c9e;" class="avatar", alt="dropdown menu"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
+            <i class="fa-solid fa-user" style="color: #2d5c9e;"></i>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="nav-item">
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="fa-solid fa-user" style="color: #2d5c9e;"></i>
         <% end %>
-      </ul>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

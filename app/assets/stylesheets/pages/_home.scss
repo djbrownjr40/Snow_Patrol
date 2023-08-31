@@ -111,7 +111,7 @@
 
 .home-container  {
   width: 100vw;
-  height: calc(100vh - 66px);
+  height: 100vh;
   overflow: hidden;
   position: relative;
     // background-image: url('https://images.pexels.com/photos/17277447/pexels-photo-17277447/free-photo-of-night-skiing.jpeg');
@@ -141,7 +141,7 @@
 
 @-webkit-keyframes slidein {
 from {background-position: center; background-size:800px; }
-to {background-position: -300px 0px; background-size:800px; }
+to {background-position: -300px -300px; background-size:800px; }
 }
 
 @keyframes slidein {

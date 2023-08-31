@@ -1,12 +1,11 @@
-<div class="text-center mb-3">3 friends checked in!</div>
+<div class="text-center mb-1 pt-2"><strong style='text-decoration: underline'>3 friends checked in!</strong></div>
 <div class="profile-list">
   <% usernames = ['justdogeorge', 'snowfiend42', 'xXlil_sebastianXx', 'zirc', 'PrincessSparklePony', 'kostas_feet<3', 'Bill Murray'] %>
   <% shuffled_usernames = usernames.shuffle %>
-  <% selected_usernames = shuffled_usernames.sample(3) %>
-
+  <% selected_usernames = shuffled_usernames.sample(2) %>
   <% selected_usernames.each do |username| %>
     <div class="profile-item">
-      <div class="profile-box" style="padding-left: 20px;">
+      <div class="profile-box" style="padding-left: 10px;">
         <%= image_tag "prof#{rand(1..7)}.jpg", alt: "profile", class: "profile-image" %>
       </div>
       <div class="username"><%= username %></div>

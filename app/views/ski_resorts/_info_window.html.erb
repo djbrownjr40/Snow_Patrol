@@ -1,13 +1,9 @@
 <a href="<%= ski_resort_path(ski_resort) %>" class="text-decoration-none">
   <h2><%= ski_resort.name %></h2>
 </a>
-<% average_rating = ski_resort.average_rating %>
-<% whole_stars = average_rating.floor %>
 <div class="d-flex justify-content-start align-items-center">
   <div class="star-line">
-    <% whole_stars.times do %>
-      <span class="star">⭐</span>
-    <% end %>
+     <% ski_resort.average_rating.times do %><i class="fa-solid fa-star" style="color: #ffdd00;"></i><% end %><% (5 - ski_resort.average_rating).times do %><i class="fa-regular fa-star" style="color: #ffdd00;"></i><% end %>
   </div>
 </div>
 <div class="d-flex justify-content-start align-items-center">

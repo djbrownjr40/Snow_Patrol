@@ -1,8 +1,8 @@
-  <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
 <div class="resort-card">
+  <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
   <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
-  <div class="info">
-    <div class='p-1'>
+  <div class="d-flex">
+    <div class="info flex-column">
       <% if ski_resort.current_condition == 'no_snow' %>
         <div class="current-snow nosnow">
           <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small" %>
@@ -38,7 +38,45 @@
           No reports yet today!
         </div>
       <% end %>
-
+      <div class="ratings">
+        <ul class="list-unstyled">
+          <li class="dif d-flex justify-content-between align-items-baseline">
+            <p>Lift waiting times</p>
+            <div>
+              <%= ski_resort.average_of("lift_wait_rating") %>
+              <i class="fa-solid fa-star" style="color: #2d5c9e;"></i>
+            </div>
+          </li>
+          <li class="dif d-flex justify-content-between align-items-baseline">
+            Food
+            <div>
+              <%= ski_resort.average_of("food_rating") %>
+              <i class="fa-solid fa-star" style="color: #2d5c9e;"></i>
+            </div>
+          </li>
+          <li class="dif d-flex justify-content-between align-items-baseline">
+            Crowded?
+            <div>
+              <%= ski_resort.average_of("crowd_rating") %>
+              <i class="fa-solid fa-star" style="color: #2d5c9e;"></i>
+            </div>
+          </li>
+          <li class="dif d-flex justify-content-between align-items-baseline">
+            Location
+            <div>
+              <%= ski_resort.average_of("location_rating") %>
+              <i class="fa-solid fa-star" style="color: #2d5c9e;"></i>
+            </div>
+          </li>
+          <li class="dif d-flex justify-content-between align-items-baseline">
+            Overall price
+            <div>
+              <%= ski_resort.average_of("price_rating") %>
+              <i class="fa-solid fa-star" style="color: #2d5c9e;"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="image">
       <% if ski_resort.photo.attached? %>

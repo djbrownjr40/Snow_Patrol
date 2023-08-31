@@ -16,7 +16,6 @@
   // class that conects cards to pins
   .show-card {
     height: 250px;
-    background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
     margin: 10px;
     border-radius: 12px;
@@ -40,6 +39,8 @@
 
     .info{
       display: flex;
+      flex-grow: 1;
+      padding-right: 10px;
     }
 
     .current-snow{
@@ -51,7 +52,8 @@
       margin-bottom: 5px;
       font-size: 17px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
+      align-items: center;
     }
 
     .nosnow{

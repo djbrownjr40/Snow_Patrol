@@ -39,6 +39,39 @@ class SkiResort < ApplicationRecord
     sum / reviews.length
   end
 
+  def average_of(rating_type)
+    return 0 if reviews.nil? || reviews.empty?
+
+    sum = 0
+    case rating_type
+    when "lift_wait_rating"
+      reviews.each do |review|
+        sum += review.lift_wait_rating
+      end
+      sum / reviews.length
+    when "price_rating"
+      reviews.each do |review|
+        sum += review.price_rating
+      end
+      sum / reviews.length
+    when "crowd_rating"
+      reviews.each do |review|
+        sum += review.crowd_rating
+      end
+      sum / reviews.length
+    when "food_rating"
+      reviews.each do |review|
+        sum += review.food_rating
+      end
+      sum / reviews.length
+    when "location_rating"
+      reviews.each do |review|
+        sum += review.location_rating
+      end
+      sum / reviews.length
+    end
+  end
+
   def current_condition
     reports = snow_reports.where("DATE(snow_reports.created_at) = ?", Date.today)
     return "no_report" unless reports.present?

@@ -29,7 +29,6 @@ ul {
 
   // style each li
   .resort-card {
-    display: flex;
     scroll-snap-align: start;
     transition: all 0.2s;
     border-color: rgb(91, 91, 91);
@@ -40,46 +39,66 @@ ul {
     .resort-name{
       padding-left: 10px;
       padding-top: 10px;
+      //adjust this when time permits
+      font-size: larger;
     }
 
-    // .info{
-    //   flex-grow: 1;
-    // }
+    .info{
+      display: flex;
+    }
 
-    // .current-snow{
-    //   border-radius: 5px;
-    //   padding-left: 10px;
-    //   padding-right: 10px;
-    //   padding-top: 5px;
-    //   padding-bottom: 5px;
-    //   margin-bottom: 15px;
-    //   font-size: 17px;
-    //   justify-self: center;
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    // }
+    .current-snow{
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      display: flex;
+      justify-content: flex-start;
+    }
 
     .nosnow{
       background-color: rgba(116, 50, 13, 0.5);
+      border-radius: 12px;
+      padding: 5%;
     }
     .slush{
       background-color: rgba(245, 30, 30, 0.5);
+      border-radius: 12px;
+      padding: 5px;
     }
     .icy{
       background-color: rgba(255, 153, 0, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+
     }
     .groomed{
       background-color: rgba(236, 240, 27, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+
     }
     .packed{
       background-color: rgba(157, 242, 47, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+
     }
     .pow{
       background-color: rgba(29, 182, 44, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+
     }
     .no-report{
       background-color: rgba(179, 180, 181, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+
+
     }
 
     .dif{

@@ -70,18 +70,13 @@ puts 'ski resorts made'
 
 puts 'Detroying all previous users...'
 User.destroy_all
-puts 'Detroying all previous check_ins...'
-CheckIn.destroy_all
-puts 'Detroying all previous reviews...'
-Review.destroy_all
-puts 'Detroying all previous snow reports...'
-SnowReport.destroy_all
 
 puts 'Creating now a new db!'
+user_no = 0
 
 # creating 10 users, each of them has been to 5 resorts, left 1 review and 1 snow report
 # none of them have a default resort assigned
-10.times do
+100.times do
   user = User.create!(
     {
       email: Faker::Internet.email,
@@ -94,8 +89,8 @@ puts 'Creating now a new db!'
     }
   )
 
-  5.times do
-    check_in = CheckIn.new({ checked_out_at: Faker::Date.between(from: 1095.days.ago, to: Date.today) })
+  50.times do
+    check_in = CheckIn.new({ checked_out_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all) })
     check_in.user = user
     check_in.ski_resort = SkiResort.all.sample
     check_in.save!
@@ -103,21 +98,23 @@ puts 'Creating now a new db!'
     review = Review.new(
       {
         comment: Faker::Lorem.sentences(number: 1),
-        lift_wait_rating: rand(0..5),
-        price_rating: rand(0..5),
-        crowd_rating: rand(0..5),
-        food_rating: rand(0..5),
-        location_rating: rand(0..5)
+        lift_wait_rating: rand(1..5),
+        price_rating: rand(1..5),
+        crowd_rating: rand(1..5),
+        food_rating: rand(1..5),
+        location_rating: rand(1..5)
       }
     )
     review.check_in = check_in
     review.save!
 
-    snow_report = SnowReport.new({ rating: rand(0..5) })
+    snow_report = SnowReport.new({ rating: rand(1..5) })
     snow_report.check_in = check_in
+    snow_report.created_at = Faker::Time.between_dates(from: Date.today, to: Date.today, period: :day)
     snow_report.save!
   end
-  puts 'user made'
+  user_no += 1
+  puts "user#{user_no} made"
 end
 
 
@@ -126,7 +123,6 @@ check_in_default = CheckIn.new({ checked_out_at: nil })
 check_in_default.user = User.first
 check_in_default.ski_resort = SkiResort.all.sample
 check_in_default.save!
-puts 'gave 1st user a default'
 
-
+puts SkiResort.first.inspect
 puts 'Done! :)'

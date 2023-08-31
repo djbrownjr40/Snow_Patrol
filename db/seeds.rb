@@ -112,22 +112,22 @@ require 'net/http'
     review = Review.new(
       {
         comment: Faker::Lorem.sentences(number: 1),
-        lift_wait_rating: rand(0..5),
-        price_rating: rand(0..5),
-        crowd_rating: rand(0..5),
-        food_rating: rand(0..5),
-        location_rating: rand(0..5)
+        lift_wait_rating: rand(1..5),
+        price_rating: rand(1..5),
+        crowd_rating: rand(1..5),
+        food_rating: rand(1..5),
+        location_rating: rand(1..5)
       }
     )
     review.check_in = check_in
     review.save!
 
-    snow_report = SnowReport.new({ rating: rand(0..5) })
+    snow_report = SnowReport.new({ rating: rand(1..5) })
     snow_report.check_in = check_in
     snow_report.save!
   end
-  puts 'user made'
 end
+puts 'user made'
 
 
 # assigning a resort as default to the first user, no review or snow report for this default resort yet

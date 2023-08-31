@@ -3,10 +3,10 @@
   <%# C: renders a show with a "check-out at X and check-in here button" %>
 <% else %>
   <div class="ski-resort-info px-2 py-3 ">
-    <div class="snow-report p-1 text-center">
+    <div class="snow-report p-3 text-center">
       <div id="scroll-container">
         <div id="scroll-text">
-          Current snow report:
+          27 people are saying the snow is currently:
           <%# <div class="current-snow my-2"> %>
           <% if @ski_resort.current_condition == 'no_snow' %>
             <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
@@ -39,8 +39,5 @@
     <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>
     <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
     <%= render "ski_resorts/check_in_btn" %>
-    <div class="back-btn">
-      <%= render "ski_resorts/back_btn" %>
-    </div>
   </div>
 <% end %>

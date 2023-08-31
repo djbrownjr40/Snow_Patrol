@@ -43,12 +43,13 @@
     <div class="chart-bg-color">
       <%= render "ski_resorts/snow_graph" %>
     </div>
-    <div class='m-1 mb-5 p-3 text-center bg-light bg-opacity-25 rounded-5'>
-      <p>FRIENDS GO HERE</p>
-    </div>
-    <div class='pt-4 m-2'>
-      <%= render "ski_resorts/check_in_btn" %>
-      <div>
-      </div>
-    </div>
-    <%= render "shared/navbar" %>
+
+    <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>
+    <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
+    <%= render "ski_resorts/check_in_btn" %>
+  </div>
+<% end %>
+
+
+<%= render "shared/navbar" %>
+

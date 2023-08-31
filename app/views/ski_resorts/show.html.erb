@@ -32,23 +32,23 @@
             <% else %>
               No reports yet today!
             <% end %>
-          <% end %>
-        </p>
+          </p>
+        </div>
       </div>
-    </div>
-    <div class='p-2'>
-      <div class="snow-report ms-4 me-4 m-1 text-center rounded-5 bg-white">
+      <div class='p-2'>
+        <div class="snow-report ms-4 me-4 m-1 text-center rounded-5 bg-white">
+        </div>
       </div>
-    </div>
-    <div class="chart-bg-color">
-      <%= render "ski_resorts/snow_graph" %>
-    </div>
-    <div class='mx-2 text-center bg-light bg-opacity-25 rounded-5'>
-      <%= render 'friends_list' %>
-    </div>
-    <div class='pt-2 m-2'>
-      <%= render "ski_resorts/check_in_btn" %>
+      <div class="chart-bg-color">
+        <%= render "ski_resorts/snow_graph" %>
+      </div>
+      <div class='mx-2 text-center bg-light bg-opacity-25 rounded-5'>
+        <%= render 'friends_list' %>
+      </div>
+      <div class='pt-2 m-2'>
+        <%= render "ski_resorts/check_in_btn" %>
+      </div>
     </div>
   </div>
-  <%= render "shared/navbar" %>
-</div>
+<% end %>
+<%= render "shared/navbar" %>

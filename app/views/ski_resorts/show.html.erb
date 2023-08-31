@@ -8,7 +8,7 @@
         <h1 class="text-center text-white"><strong> <%= @ski_resort.name %></strong></h1>
         <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
       </div>
-      <div id='scroll-container' class='mt-1 bg-dark bg-opacity-25'>
+      <div id='scroll-container' class='mt-1 bg-opacity-25 <%= render 'background_style' %>'>
         <div id='scroll-text'>
           <p class='p-0 m-0'><strong><%= @ski_resort.snow_reports.count%></strong> people say the snow is:
             <% if @ski_resort.current_condition == 'no_snow' %>

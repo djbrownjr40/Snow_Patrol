@@ -40,6 +40,15 @@ $red: #FF0000;
 $salmon-pink: #FFCAD3;
 $pink: #FF8298;
 
+$nosnow: rgba(116, 50, 13, 0.5);
+$slush: rgba(245, 30, 30, 0.5);
+$icy: rgba(255, 153, 0, 0.5);
+$groomed: rgba(236, 240, 27, 0.5);
+$packed: rgba(157, 242, 47, 0.5);
+$pow:  rgba(29, 182, 44, 0.5);
+
+
+
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -48,8 +57,13 @@ $theme-colors: (
   "warning":    $warning,
   "danger":     $danger,
   "light":      $light,
-  "dark":    $blue-grey
-
+  "dark":    $blue-grey,
+  "nosnow": $nosnow,
+  "slush": $slush,
+  "icy": $icy,
+  "groomed": $groomed,
+  "packed": $packed,
+  "pow": $pow
   );
 
   $form-range-thumb-bg: $pink;

@@ -2,43 +2,54 @@
   <%= render "ski_resorts/checked_in_show", ski_resort: @ski_resort, new_checkin: current_user.active_check_in %>
   <%# C: renders a show with a "check-out at X and check-in here button" %>
 <% else %>
-  <div class="ski-resort-info px-2 py-3 ">
-    <div class="snow-report p-3 text-center">
-      <div id="scroll-container">
-        <div id="scroll-text">
-          27 people are saying the snow is currently:
-          <%# <div class="current-snow my-2"> %>
-          <% if @ski_resort.current_condition == 'no_snow' %>
-            <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
-            <span class="condition-text">NO SNOW!</span>
-          <% elsif @ski_resort.current_condition == 'slushy' %>
-            <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small slush", width: 50, height: 50 %>
-            <span class="condition-text">SLUSHY!</span>
-          <% elsif @ski_resort.current_condition == 'icy' %>
-            <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small icy", width: 50, height: 50 %>
-            <span class="condition-text">ICY!</span>
-          <% elsif @ski_resort.current_condition == 'groomed_snow' %>
-            <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small groomed", width: 50, height: 50 %>
-            <span class="condition-text">GROOMED!</span>
-          <% elsif @ski_resort.current_condition == 'packed_powder' %>
-            <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small packed", width: 50, height: 50 %>
-            <span class="condition-text">PACKED!</span>
-          <% elsif @ski_resort.current_condition == 'pow' %>
-            <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small pow", width: 50, height: 50 %>
-            <span class="condition-text">POW!</span>
-          <% else %>
-            No reports yet today!
+  <div class='ski-resort-info'>
+    <div class='background-color-style'>
+      <div class='bg-light pt-4 bg-opacity-25 rounded-bottom-4'>
+        <h1 class="text-center text-white"><strong> <%= @ski_resort.name %></strong></h1>
+        <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
+      </div>
+      <div id='scroll-container' class='mt-1 bg-opacity-25 <%= render 'background_style' %>'>
+        <div id='scroll-text'>
+          <p class='p-0 m-0'><strong><%= @ski_resort.snow_reports.count%></strong> people say the snow is:
+            <% if @ski_resort.current_condition == 'no_snow' %>
+              <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small nosnow", width: 50, height: 50 %>
+              <span class="condition-text">NO SNOW!</span>
+            <% elsif @ski_resort.current_condition == 'slushy' %>
+              <%= image_tag "slush.svg", alt: "Slushy", class: "svg-icon-small slush", width: 50, height: 50 %>
+              <span class="condition-text">SLUSHY!</span>
+            <% elsif @ski_resort.current_condition == 'icy' %>
+              <%= image_tag "icy.svg", alt: "Icy", class: "svg-icon-small icy", width: 50, height: 50 %>
+              <span class="condition-text">ICY!</span>
+            <% elsif @ski_resort.current_condition == 'groomed_snow' %>
+              <%= image_tag "groomed.svg", alt: "Groomed", class: "svg-icon-small groomed", width: 50, height: 50 %>
+              <span class="condition-text">GROOMED!</span>
+            <% elsif @ski_resort.current_condition == 'packed_powder' %>
+              <%= image_tag "packed.svg", alt: "Packed Powder", class: "svg-icon-small packed", width: 50, height: 50 %>
+              <span class="condition-text">PACKED!</span>
+            <% elsif @ski_resort.current_condition == 'pow' %>
+              <%= image_tag "powder.svg", alt: "Powder", class: "svg-icon-small pow", width: 50, height: 50 %>
+              <span class="condition-text">POW!</span>
+            <% else %>
+              No reports yet today!
+            <% end %>
           <% end %>
-          <%# </div> %>
-        </div>
+        </p>
+      </div>
+    </div>
+    <div class='p-2'>
+      <div class="snow-report ms-4 me-4 m-2 text-center rounded-5 bg-white">
       </div>
     </div>
     <div class="chart-bg-color">
       <%= render "ski_resorts/snow_graph" %>
     </div>
+
     <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>
     <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
     <%= render "ski_resorts/check_in_btn" %>
   </div>
 <% end %>
+
+
 <%= render "shared/navbar" %>
+

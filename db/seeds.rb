@@ -27,15 +27,6 @@ CSV.foreach(ski_resorts, headers: :first_row, header_converters: :symbol) do |ro
       height: rand(150.0..350.0),
       length: rand(15.0..35.0),
       temp: rand(-15.0..3.0),
-      features: {
-        restaurant: [true, false].sample,
-        restroom: [true, false].sample,
-        looker_room: [true, false].sample,
-        rental_wear: [true, false].sample,
-        shower_room: [true, false].sample,
-        english_friendly: [true, false].sample,
-        kids_friendly:[true, false].sample
-      },
       courses: {
         easy: rand(0..4),
         intermediate: rand(0..4),

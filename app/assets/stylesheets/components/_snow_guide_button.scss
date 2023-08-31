@@ -1,16 +1,53 @@
-.info-button {
-  display: inline-block;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  text-align: center;
-  line-height: 24px;
-  cursor: pointer;
+// .info-button {
+//   display: inline-block;
+//   background-color: #f0f0f0;
+//   border: 1px solid #ccc;
+//   border-radius: 50%;
+//   width: 24px;
+//   height: 24px;
+//   text-align: center;
+//   line-height: 24px;
+//   cursor: pointer;
+// }
+
+// .info-button i {
+//   color: #333;
+//   font-size: 16px;
+// }
+
+.table-bordered {
+  table-layout: fixed;
 }
 
-.info-button i {
-  color: #333;
-  font-size: 16px;
+.table-bordered td {
+  width: calc(100% / 3); /* Distribute equally among 3 columns */
+}
+
+.nosnow{
+  border-radius: 12px;
+  padding: 5%;
+}
+.slush{
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.icy{
+  border-radius: 12px;
+  padding: 10px;
+
+}
+.groomed{
+  border-radius: 12px;
+  padding: 10px;
+
+}
+.packed{
+  border-radius: 12px;
+  padding: 10px;
+
+}
+.pow{
+  border-radius: 12px;
+  padding: 10px;
 }

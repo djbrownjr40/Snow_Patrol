@@ -139,6 +139,7 @@ export default class extends Controller {
       speed: 0.4,
     });
   }
+}
 
   // #setupCardScrollListener() {
   //   const cardsContainer = document.querySelector("[data-controller='map']");
@@ -149,4 +150,3 @@ export default class extends Controller {
   //     }
   //   });
   // }
-}

@@ -1,0 +1,16 @@
+<% case @ski_resort.current_condition %>
+<% when 'no_snow' %>
+<%= "class= bg-nosnow" %>
+<% when 'slushy'%>
+<%="class= bg-slush"%>
+<% when 'icy'%>
+<%="class= bg-icy"%>
+<% when 'groomed_snow'%>
+<%="class= bg-groomed"%>
+<% when 'packed_powder'%>
+<%="class= bg-packed"%>
+<% when 'pow'%>
+<%="class= bg-pow"%>
+<% when ''%>
+<%="class= bg-dark"%>
+<% end %>

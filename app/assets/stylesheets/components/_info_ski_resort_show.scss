@@ -21,12 +21,18 @@
   }
 
   background-image: url('https://images.pexels.com/photos/15835820/pexels-photo-15835820/free-photo-of-snowy-mountain-in-birds-eye-view.jpeg');
+
+  .background-color-style {
+    background-color: rgba($color: $dark-blue, $alpha: 0.25);
+    height: inherit;
+  }
   // background-position: center;
 
   #scroll-container {
     // border: 3px solid black;
     border-radius: 5px;
     overflow: hidden;
+    overflow-wrap: break-word;
   }
 
   #scroll-text {
@@ -35,9 +41,9 @@
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
 
-    -moz-animation: my-animation 15s linear infinite;
-    -webkit-animation: my-animation 15s linear infinite;
-    animation: my-animation 15s linear infinite;
+    -moz-animation: my-animation 13s linear infinite;
+    -webkit-animation: my-animation 13s linear infinite;
+    animation: my-animation 13s linear infinite;
   }
 
   /* for Firefox */

@@ -1,2 +1,13 @@
-<h1>People are saying:</h1>
-<%= line_chart @snow_ratings, xtitle: 'Date', ytitle: 'Snow Rating', curve: true %>
+<div class='m-3 mt-0 p-2 bg-light bg-opacity-25 rounded-4'>
+  <%= line_chart @snow_ratings,
+xtitle: 'Date',
+ytitle: 'POW',
+min: 0,
+max: 5,
+curve: true,
+points: false,
+dataset: {
+  borderWidth: 10
+}
+%>
+</div>

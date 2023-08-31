@@ -114,11 +114,12 @@
   height: calc(100vh - 66px);
   overflow: hidden;
   position: relative;
-    background-image: url('https://images.pexels.com/photos/17277447/pexels-photo-17277447/free-photo-of-night-skiing.jpeg');
+    // background-image: url('https://images.pexels.com/photos/17277447/pexels-photo-17277447/free-photo-of-night-skiing.jpeg');
+    background-image: url('https://images.pexels.com/photos/4012476/pexels-photo-4012476.jpeg');
     // background-image: url('https://images.pexels.com/photos/3784152/pexels-photo-3784152.jpeg');
   background-size:cover;
-        -webkit-animation: slidein 80s;
-        animation: slidein 80s;
+        -webkit-animation: slidein 50s;
+        animation: slidein 50s;
 
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
@@ -131,13 +132,13 @@
 }
 
 @-webkit-keyframes slidein {
-from {background-position: top; background-size:800px; }
-to {background-position: -300px 0px;background-size:800px;}
+from {background-position: center; background-size:800px; }
+to {background-position: -300px 0px; background-size:800px; }
 }
 
 @keyframes slidein {
-from {background-position: top;background-size:800px; }
-to {background-position: -300px 0px;background-size:800px;}
+from {background-position: bottom; background-size:800px; }
+to {background-position: -300px -300px; background-size:800px; }
 }
 
 .center

@@ -1,8 +1,8 @@
   <%= link_to "", ski_resort_path(ski_resort.id), style: 'position: absolute; height: 100%; width: 100%;' %>
 <div class="resort-card">
+  <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
   <div class="info">
-    <h4 class="resort-name"><strong><%= ski_resort.name %></strong></h4>
-    <div>
+    <div class='p-1'>
       <% if ski_resort.current_condition == 'no_snow' %>
         <div class="current-snow nosnow">
           <%= image_tag "clear.svg", alt: "No snow", class: "svg-icon-small" %>
@@ -38,32 +38,32 @@
           No reports yet today!
         </div>
       <% end %>
+      <div class="courses d-flex flex-column">
+        Available courses:
+        <ul class="list-unstyled">
+          <% ski_resort.courses.each do |course, number| %>
+            <li class="dif d-flex d-flex justify-content-between">
+              <% if course.to_s == "easy" %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square" style="color: #5bde4a;"></i> <%= course.to_s.capitalize %></div>
+                <%= number %>
+              <% elsif course.to_s == "intermediate" %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square-full" style="color: #70d2eb;"></i> <%= course.to_s.capitalize %></div>
+                <%= number %>
+              <% elsif course.to_s == "advanced" %>
+                <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-diamond" style="color: #434343;"></i> <%= course.to_s.capitalize %></div>
+                <%= number %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="courses d-flex flex-column">
-      Available courses:
-      <ul class="list-unstyled">
-        <% ski_resort.courses.each do |course, number| %>
-          <li class="dif d-flex">
-            <% if course.to_s == "easy" %>
-              <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square" style="color: #5bde4a;"></i> <%= course.to_s.capitalize %></div>
-              <%= number %>
-            <% elsif course.to_s == "intermediate" %>
-              <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-square-full" style="color: #70d2eb;"></i> <%= course.to_s.capitalize %></div>
-              <%= number %>
-            <% elsif course.to_s == "advanced" %>
-              <div class="d-flex align-items-center"><i class="mx-2 fa-solid fa-diamond" style="color: #434343;"></i> <%= course.to_s.capitalize %></div>
-              <%= number %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="image">
+      <% if ski_resort.photo.attached? %>
+        <%= cl_image_tag ski_resort.photo.key, class: "image" %>
+      <% else %>
+        <%= image_tag "ski_resort.jpg", class: "image" %>
+      <% end %>
     </div>
-  </div>
-  <div class="image">
-    <% if ski_resort.photo.attached? %>
-      <%= cl_image_tag ski_resort.photo.key, class: "image" %>
-    <% else %>
-      <%= image_tag "ski_resort.jpg", class: "image" %>
-    <% end %>
   </div>
 </div>

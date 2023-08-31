@@ -43,13 +43,10 @@
     <div class="chart-bg-color">
       <%= render "ski_resorts/snow_graph" %>
     </div>
-
     <h1 class="text-center m-4 text-light"><strong> <%= @ski_resort.name %></strong></h1>
     <%= render "ski_resorts/specific_info", ski_resort: @ski_resort %>
     <%= render "ski_resorts/check_in_btn" %>
   </div>
 <% end %>
-
-
+</div>
 <%= render "shared/navbar" %>
-

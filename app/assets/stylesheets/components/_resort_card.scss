@@ -27,14 +27,14 @@
     transition: all 0.2s;
     border-color: rgb(91, 91, 91);
     padding: 7pt;
-    width: 320px;
+    width: 360px;
 
 
     .resort-name{
       padding-left: 10px;
       padding-top: 10px;
-      //adjust this when time permits
       font-size: larger;
+      text-align: center;
     }
 
     .info{
@@ -132,6 +132,6 @@ body, html {
 }
 
 .condition-text {
-  color: #073763; /* Change this to your desired text color */
+  color: #00080f; /* Change this to your desired text color */
   font-weight: bold; /* Optional: Apply bold style to the text */
 }

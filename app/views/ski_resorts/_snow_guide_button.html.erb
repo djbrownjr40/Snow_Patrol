@@ -1,7 +1,21 @@
-<%# snow descriptions %>
-<div class="border-top py-2 mb-4">
+<div class='d-flex p-3' style='position: absolute; width: 100%; z-index: 2; margin-top: 40px; left: 10px;'>
+  <div class="info-button">
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#snowGuideModal">
+      <i class="fas fa-info-circle"></i>
+    </button>
+  </div>
+</div>
 
-  <h1 class="text-center">Snow Guide</h1>
+
+<!-- Modal -->
+<div class="modal fade" id="snowGuideModal" tabindex="-1" aria-labelledby="snowGuideModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="text-center">Snow Guide</h1>
   <div class="mb-4 px-2">
     <h2>Powder Snow</h2>
       <%= image_tag "powder snow.avif", class: "mx-auto d-block img-fluid rounded" %>
@@ -26,5 +40,11 @@
     <%= image_tag "no snow.avif", class: "mx-auto d-block img-fluid rounded" %>
 
   <p>No snow is a no-go! Stay home or hit the hot spring instead.
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>

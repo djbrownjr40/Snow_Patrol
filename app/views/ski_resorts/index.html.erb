@@ -5,7 +5,6 @@
   <div class='outer-cards-container'>
     <ul data-search-target="cards" class="cards" data-action="scroll->map#updateMarkerColors">
       <% @ski_resorts.each do |ski_resort| %>
-        <%# create a js controller script that adds padding to the individual card that appears first in the list %>
         <li class="show-card bg-white" style='position: relative'
         data-ski-resort-id="<%= ski_resort.id %>" data-ski-resort-coordinates="<%= [ski_resort.longitude, ski_resort.latitude] %>">
           <%= render "ski_resorts/resort_card", ski_resort: ski_resort %>

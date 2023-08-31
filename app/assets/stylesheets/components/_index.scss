@@ -6,3 +6,10 @@
 @import "map";
 @import "form_review";
 @import "snow_report";
+
+
+.index-container {
+
+  height: calc(100% - 66px);
+  overflow: hidden;
+}

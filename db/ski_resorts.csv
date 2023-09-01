@@ -42,8 +42,6 @@ id,resort_name,town,prefecture,latitude,longitude,url_path,name_ja,address_ja
 59,Hakuba 47 Winter Sports Park,Hakuba,Nagano,36.685,137.8283333,nagano/hakuba/hakuba-47-winter-sports-park,Hakuba47ウインタースポーツパーク,(長野県 白馬村)
 60,Hakuba Cortina,Otari,Nagano,36.7763409,137.8886568,nagano/otari/hakuba-cortina,白馬コルチナ,(長野県 小谷村)
 61,Hakuba Happo-one,Hakuba,Nagano,36.7022164,137.833887,nagano/hakuba/hakuba-happo-one,白馬八方尾根,(長野県 白馬村)
-62,Hakuba Iwatake Snow Field,Hakuba,Nagano,36.715276,137.85706,nagano/hakuba/hakuba-iwatake-snow-field,白馬岩岳スノーフィールド,(長野県 白馬村)
-63,Hakuba Norikura Onsen,Otari,Nagano,36.7658832,137.8739806,nagano/otari/hakuba-norikura-onsen,白馬乗鞍温泉,(長野県 小谷村)
 65,Hakuba Valley Kashimayari,Omachi,Nagano,36.5969431,137.8254561,nagano/omachi/kashimayari-sports-village,HAKUBA VALLEY鹿島槍,(長野県 大町市)
 66,Hakusan Ichirino Onsen,Hakusan,Ishikawa,36.2684053,136.7165704,ishikawa/hakusan/hakusan-ichirino-onsen,白山一里野温泉,(石川県 白山市)
 67,Hakusan Seymour,Hakusan,Ishikawa,36.3470779,136.6777617,ishikawa/hakusan/hakusan-seymour,白山セイモア,(石川県 白山市)

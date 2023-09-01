@@ -10,7 +10,18 @@
 
 
 .index-container {
-
-  height: calc(100% - 66px);
+  height: calc(100vh - 48px);
   overflow: hidden;
+}
+
+.map-container, .mapboxgl-map {
+  width: calc(100vw + 10px) !important;
+
+  .mapboxgl-canvas{
+    width: 100% !important;
+  }
+}
+
+.wider{
+  width: calc(100vw + 10px) !important;
 }

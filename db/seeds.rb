@@ -76,7 +76,7 @@ user_no = 0
 
 # creating 10 users, each of them has been to 5 resorts, left 1 review and 1 snow report
 # none of them have a default resort assigned
-100.times do
+10.times do
   user = User.create!(
     {
       email: Faker::Internet.email,
@@ -89,7 +89,7 @@ user_no = 0
     }
   )
 
-  50.times do
+  5.times do
     check_in = CheckIn.new({ checked_out_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all) })
     check_in.user = user
     check_in.ski_resort = SkiResort.all.sample

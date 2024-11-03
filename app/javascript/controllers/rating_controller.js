@@ -14,8 +14,3 @@ export default class extends Controller {
     this.emojiTarget.innerText = emojis[index]
   }
 }
-
-// $("input").mousemove(function(){
-//   var i = $(this).val();
-//   $(".emoji").html(emojis[i]);
-// });

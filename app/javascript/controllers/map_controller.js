@@ -55,35 +55,6 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 12 })
-
-      // // Add a data source containing GeoJSON data.
-      // this.map.addSource('ski_areas', {
-      // type: 'geojson',
-      // data: '/geojson/ski_areas.geojson'
-      // });
-
-      // // Add a new layer to visualize the polygon.
-      // this.map.addLayer({
-      // id: 'ski_areas',
-      // type: 'fill',
-      // source: 'ski_areas', // reference the data source
-      // layout: {},
-      // paint: {
-      // 'fill-color': '#0080ff', // blue color fill
-      // 'fill-opacity': 0.5
-      // }
-      // });
-      // // Add a black outline around the polygon.
-      // this.map.addLayer({
-      // id: 'outline',
-      // type: 'line',
-      // source: 'maine',
-      // layout: {},
-      // paint: {
-      // 'line-color': '#000',
-      // 'line-width': 3
-      // }
-      // });
       })
 }
 
@@ -140,13 +111,3 @@ export default class extends Controller {
     });
   }
 }
-
-  // #setupCardScrollListener() {
-  //   const cardsContainer = document.querySelector("[data-controller='map']");
-  //   cardsContainer.addEventListener("scroll", () => {
-  //     const visibleCard = this.#findVisibleCard(cardsContainer);
-  //     if (visibleCard) {
-  //       this.updateMarkerColors(visibleCard);
-  //     }
-  //   });
-  // }
